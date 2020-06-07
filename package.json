@@ -1,0 +1,46 @@
+{
+  "name": "ticket-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.0.0",
+    "fork-ts-checker-webpack-plugin": "^4.1.4",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1",
+    "tslint": "^6.1.2",
+    "tslint-immutable": "^6.0.1",
+    "tslint-react-hooks": "^2.2.2",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/tapable": "^1.0.5",
+    "@types/webpack": "^4.41.13",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
