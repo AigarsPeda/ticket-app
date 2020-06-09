@@ -4,7 +4,7 @@ class App extends React.PureComponent {
   render() {
     return (
       <div>
-        <h1>Ticket App</h1>
+        <h1>Ticket App Testing GIT</h1>
       </div>
     );
   }
