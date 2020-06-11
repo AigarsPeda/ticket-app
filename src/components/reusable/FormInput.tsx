@@ -1,0 +1,48 @@
+import React from "react";
+
+interface IFormInput {
+  id: string;
+  name: string;
+  type: string;
+  placeholder: string;
+  className: string;
+  value: string;
+  error?: string;
+  label: string;
+  onChange: () => void;
+}
+
+const FormInput: React.FC<IFormInput> = (props) => {
+  const {
+    id,
+    name,
+    type,
+    placeholder,
+    className,
+    value,
+    error,
+    label,
+    onChange,
+  } = props;
+  return (
+    <>
+      <label htmlFor={name}>{label}</label>
+      <input
+        id={id}
+        name={name}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        className={className}
+        onChange={onChange}
+        autoComplete="fales"
+        style={{ border: error ? "solid 1px red" : undefined }}
+      />
+      {error ? (
+        <p style={{ color: "red", fontSize: "14px" }}>{error}</p>
+      ) : undefined}
+    </>
+  );
+};
+
+export default FormInput;
