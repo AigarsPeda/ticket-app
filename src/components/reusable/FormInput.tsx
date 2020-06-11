@@ -1,12 +1,12 @@
 import React from "react";
 
 interface IFormInput {
-  id: string;
+  id?: string;
   name: string;
-  type: string;
+  type: "text" | "number " | "password";
   placeholder: string;
-  className: string;
-  value: string;
+  className?: string;
+  value: string | number;
   error?: string;
   label: string;
   onChange: () => void;
@@ -16,9 +16,9 @@ const FormInput: React.FC<IFormInput> = (props) => {
   const {
     id,
     name,
-    type,
+    type = "text",
     placeholder,
-    className,
+    className = "",
     value,
     error,
     label,
