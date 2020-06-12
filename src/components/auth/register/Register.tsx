@@ -1,6 +1,7 @@
 import React from "react";
 import FormInput from "../../reusable/FormInput";
 import "../Auth.scss";
+import RadioInput from "../../reusable/RadioInput";
 
 const Register: React.FC = () => {
   const handleChange = () => {
@@ -35,6 +36,32 @@ const Register: React.FC = () => {
               error=""
               onChange={handleChange}
             />
+          </div>
+          <div className="form-group">
+            <label>Role</label>
+            <br />
+            <div className="form-check form-check-inline">
+              <RadioInput
+                id="inlineRadio1"
+                name="role"
+                labelClassName="form-check-label"
+                className="form-check-input"
+                value="User"
+                error=""
+                onChange={handleChange}
+              />
+            </div>
+            <div className="form-check form-check-inline">
+              <RadioInput
+                id="inlineRadio2"
+                name="role"
+                labelClassName="form-check-label"
+                className="form-check-input"
+                value="Admin"
+                error=""
+                onChange={handleChange}
+              />
+            </div>
           </div>
         </form>
       </div>
