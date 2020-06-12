@@ -67,13 +67,13 @@ const Register: React.FC = () => {
                 onChange={handleChange}
               />
             </div>
-            <Button
-              type="submit"
-              label="Sign Up"
-              className="btn btn-primary btn-block"
-              handleClick={handleClick}
-            />
           </div>
+          <Button
+            type="submit"
+            label="Sign Up"
+            className="btn btn-primary btn-block"
+            handleClick={handleClick}
+          />
         </form>
       </div>
     </div>
