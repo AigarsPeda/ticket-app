@@ -2,10 +2,15 @@ import React from "react";
 import FormInput from "../../reusable/FormInput";
 import "../Auth.scss";
 import RadioInput from "../../reusable/RadioInput";
+import Button from "../../reusable/Button";
 
 const Register: React.FC = () => {
   const handleChange = () => {
     console.log("Spiežu pogas");
+  };
+
+  const handleClick = () => {
+    console.log("Click click");
   };
 
   return (
@@ -62,6 +67,12 @@ const Register: React.FC = () => {
                 onChange={handleChange}
               />
             </div>
+            <Button
+              type="submit"
+              label="Sign Up"
+              className="btn btn-primary btn-block"
+              handleClick={handleClick}
+            />
           </div>
         </form>
       </div>
