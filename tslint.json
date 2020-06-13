@@ -61,7 +61,7 @@
     "eofline": false,
 
     "max-line-length": [true, 250],
-    "no-require-imports": false,
+    "no-require-imports": true,
     "no-trailing-whitespace": true,
     "object-literal-sort-keys": false,
     "trailing-comma": [

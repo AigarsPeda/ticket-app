@@ -1,9 +1,11 @@
 import React from "react";
-import FormInput from "../../reusable/FormInput";
+import { Link } from "react-router-dom";
+
 import "../Auth.scss";
+
+import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
-import { Link } from "react-router-dom";
 
 const Register: React.FC = () => {
   const handleChange = () => {
@@ -77,7 +79,7 @@ const Register: React.FC = () => {
           />
           <p className="forgot-password text-right">
             Already registered?
-            <Link to={"/sign-in"}>Register</Link>
+            <Link to={"/sign-in"}>Login</Link>
           </p>
         </form>
       </div>
