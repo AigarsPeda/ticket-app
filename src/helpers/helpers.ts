@@ -27,7 +27,7 @@ export const validateInputs = (
   // Password validation
   if (!password) {
     formValid = false;
-    errorMsg.usernameError = "Please enter a password.";
+    errorMsg.usernameError = "Please enter a username.";
   }
   if (typeof password !== undefined) {
     if (!password.match(/^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[a-z]).*$/)) {
@@ -36,6 +36,7 @@ export const validateInputs = (
     }
   }
 
+  // Role validation
   if (role === "") {
     formValid = false;
     errorMsg.roleError = "Please select a role.";

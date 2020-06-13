@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { validateInputs } from "../../../helpers/helpers";
+
 import "../Auth.scss";
 
 import FormInput from "../../reusable/FormInput";
@@ -37,7 +39,12 @@ const Register: React.FC = () => {
 
   const onRegisterUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(user);
+
+    const isValid = validateInputs(user, setError);
+
+    if (isValid) {
+      console.log(user);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,7 +68,7 @@ const Register: React.FC = () => {
               className="form-control"
               placeholder="Enter Username"
               value={username}
-              error=""
+              error={usernameError}
               onChange={handleChange}
             />
           </div>
@@ -73,7 +80,7 @@ const Register: React.FC = () => {
               className="form-control"
               placeholder="Enter Password"
               value={password}
-              error=""
+              error={passwordError}
               onChange={handleChange}
             />
           </div>
@@ -87,7 +94,7 @@ const Register: React.FC = () => {
                 labelClassName="form-check-label"
                 className="form-check-input"
                 value="User"
-                error=""
+                error={roleError}
                 onChange={handleChange}
               />
             </div>
@@ -98,7 +105,7 @@ const Register: React.FC = () => {
                 labelClassName="form-check-label"
                 className="form-check-input"
                 value="Admin"
-                error=""
+                error={roleError}
                 onChange={handleChange}
               />
             </div>
