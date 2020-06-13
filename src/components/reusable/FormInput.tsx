@@ -9,7 +9,7 @@ interface IFormInput {
   value: string | number;
   error?: string;
   label: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const FormInput: React.FC<IFormInput> = (props) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../Auth.scss";
@@ -7,9 +7,48 @@ import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
+interface IUser {
+  username: string;
+  password: string;
+  role: string;
+}
+
+interface IError {
+  usernameError: string;
+  passwordError: string;
+  roleError: string;
+}
+
 const Register: React.FC = () => {
-  const handleChange = () => {
-    console.log("Spiežu pogas");
+  const [user, setUser] = useState<IUser>({
+    username: "",
+    password: "",
+    role: "",
+  });
+
+  const [error, setError] = useState<IError>({
+    usernameError: "",
+    passwordError: "",
+    roleError: "",
+  });
+
+  const { username, password } = user;
+  const { usernameError, passwordError, roleError } = error;
+
+  const onRegisterUser = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(user);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    // setUser({
+    //   [name]: value,
+    // } as any);
+    setUser((state) => ({
+      ...state,
+      [name]: value,
+    }));
   };
 
   const handleClick = () => {
@@ -19,7 +58,7 @@ const Register: React.FC = () => {
   return (
     <div className="auth-wrapper">
       <div className="auth-inner">
-        <form>
+        <form onSubmit={onRegisterUser}>
           <h3>Sign Up</h3>
           <div className="form-group">
             <FormInput
@@ -28,7 +67,7 @@ const Register: React.FC = () => {
               label="Username"
               className="form-control"
               placeholder="Enter Username"
-              value=""
+              value={username}
               error=""
               onChange={handleChange}
             />
@@ -40,7 +79,7 @@ const Register: React.FC = () => {
               label="Password"
               className="form-control"
               placeholder="Enter Password"
-              value=""
+              value={password}
               error=""
               onChange={handleChange}
             />
@@ -56,7 +95,7 @@ const Register: React.FC = () => {
                 className="form-check-input"
                 value="User"
                 error=""
-                onChange={handleChange}
+                onChange={() => handleChange}
               />
             </div>
             <div className="form-check form-check-inline">
@@ -67,7 +106,7 @@ const Register: React.FC = () => {
                 className="form-check-input"
                 value="Admin"
                 error=""
-                onChange={handleChange}
+                onChange={() => handleChange}
               />
             </div>
           </div>
