@@ -27,7 +27,7 @@ export const validateInputs = (
   // Password validation
   if (!password) {
     formValid = false;
-    errorMsg.usernameError = "Please enter a username.";
+    errorMsg.usernameError = "Please enter a password.";
   }
   if (typeof password !== undefined) {
     if (!password.match(/^.*(?=.{6,})(?=.*\d)(?=.*[a-z])(?=.*[a-z]).*$/)) {
