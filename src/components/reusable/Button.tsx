@@ -4,7 +4,7 @@ interface IButton {
   label: string;
   type: "button" | "submit" | "reset";
   className: string;
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 const Button: React.FC<IButton> = (props) => {

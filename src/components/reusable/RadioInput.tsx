@@ -7,7 +7,7 @@ interface IRadioInput {
   value: string | number;
   error?: string;
   labelClassName: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const RadioInput: React.FC<IRadioInput> = (props) => {

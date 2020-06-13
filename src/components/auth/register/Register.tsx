@@ -42,17 +42,10 @@ const Register: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    // setUser({
-    //   [name]: value,
-    // } as any);
     setUser((state) => ({
       ...state,
       [name]: value,
     }));
-  };
-
-  const handleClick = () => {
-    console.log("Click click");
   };
 
   return (
@@ -95,7 +88,7 @@ const Register: React.FC = () => {
                 className="form-check-input"
                 value="User"
                 error=""
-                onChange={() => handleChange}
+                onChange={handleChange}
               />
             </div>
             <div className="form-check form-check-inline">
@@ -106,7 +99,7 @@ const Register: React.FC = () => {
                 className="form-check-input"
                 value="Admin"
                 error=""
-                onChange={() => handleChange}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -114,7 +107,7 @@ const Register: React.FC = () => {
             type="submit"
             label="Sign Up"
             className="btn btn-primary btn-block"
-            handleClick={handleClick}
+            // handleClick={onRegisterUser}
           />
           <p className="forgot-password text-right">
             Already registered?
