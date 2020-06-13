@@ -7,13 +7,13 @@ import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
-interface IUser {
+export interface IUser {
   username: string;
   password: string;
   role: string;
 }
 
-interface IError {
+export interface IError {
   usernameError: string;
   passwordError: string;
   roleError: string;
