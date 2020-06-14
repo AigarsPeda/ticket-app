@@ -1,4 +1,4 @@
-import { IUser, IError } from "../components/auth/register/Register";
+import { IUser, IError } from "../interfaces/interfaces";
 
 export const validateInputs = (
   userData: IUser,

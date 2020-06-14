@@ -1,25 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { validateInputs } from "../../../helpers/helpers";
-
 import "../Auth.scss";
+
+import { IUser, IError } from "../../../interfaces/interfaces";
+import { validateInputs } from "../../../helpers/helpers";
 
 import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
-
-export interface IUser {
-  username: string;
-  password: string;
-  role: string;
-}
-
-export interface IError {
-  usernameError: string;
-  passwordError: string;
-  roleError: string;
-}
 
 const Register: React.FC = () => {
   const [user, setUser] = useState<IUser>({

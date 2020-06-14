@@ -1,24 +1,50 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../Auth.scss";
+
+import { IUser, IError } from "../../../interfaces/interfaces";
+import { validateInputs } from "../../../helpers/helpers";
 
 import FormInput from "../../reusable/FormInput";
 import Button from "../../reusable/Button";
 
 const Login: React.FC = () => {
-  const handleChange = () => {
-    console.log("Spiežu pogas");
+  const [user, setUser] = useState<IUser>({
+    username: "",
+    password: "",
+  });
+
+  const [error, setError] = useState<IError>({
+    usernameError: "",
+    passwordError: "",
+  });
+
+  const { username, password } = user;
+  const { usernameError, passwordError } = error;
+
+  const onLoginUser = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const isValid = validateInputs(user, setError);
+
+    if (isValid) {
+      console.log(user);
+    }
   };
 
-  const handleClick = () => {
-    console.log("Click click");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUser((state) => ({
+      ...state,
+      [name]: value,
+    }));
   };
 
   return (
     <div className="auth-wrapper">
       <div className="auth-inner">
-        <form>
+        <form onSubmit={onLoginUser}>
           <h3>Sign In</h3>
           <div className="form-group">
             <FormInput
@@ -27,8 +53,8 @@ const Login: React.FC = () => {
               label="Username"
               className="form-control"
               placeholder="Enter Username"
-              value=""
-              error=""
+              value={username}
+              error={usernameError}
               onChange={handleChange}
             />
           </div>
@@ -39,8 +65,8 @@ const Login: React.FC = () => {
               label="Password"
               className="form-control"
               placeholder="Enter Password"
-              value=""
-              error=""
+              value={password}
+              error={passwordError}
               onChange={handleChange}
             />
           </div>
@@ -48,7 +74,7 @@ const Login: React.FC = () => {
             type="submit"
             label="Sign Up"
             className="btn btn-primary btn-block"
-            handleClick={handleClick}
+            // handleClick={onRegisterUser}
           />
           <p className="forgot-password text-right">
             Not yet registered?
