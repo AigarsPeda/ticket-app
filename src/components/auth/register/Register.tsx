@@ -15,7 +15,7 @@ import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
 const Register: React.FC<any> = (props) => {
-  const { isAuthenticated, createUser } = props;
+  const { createUser } = props;
 
   const [user, setUser] = useState<IUser>({
     username: "",
@@ -38,7 +38,7 @@ const Register: React.FC<any> = (props) => {
     const isValid = validateInputs(user, setError);
 
     if (isValid) {
-      console.log(user);
+      // console.log(user);
       createUser(user);
     }
   };

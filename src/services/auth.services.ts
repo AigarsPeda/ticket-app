@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IUser } from "../interfaces/interfaces";
 
-const API_ENDPOINT = "http://localhost:500";
+const API_ENDPOINT = "http://localhost:5000";
 const config = {
   headers: {
     "Content-Type": "application/json",

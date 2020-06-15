@@ -1,11 +1,13 @@
 import { AUTHENTICATE_USER } from "../types";
 import { signUpUser } from "../../services/auth.services";
 
-import { ThunkDispatch } from "redux-thunk";
+import { ThunkAction } from "redux-thunk";
+import { RootState } from "../reducers";
+import { Action } from "redux";
 
-export const createUser = (userData: any) => async (
-  dispatch: ThunkDispatch<{}, {}, any>
-) => {
+export const createUser = (
+  userData: any
+): ThunkAction<void, RootState, any, Action<string>> => async (dispatch) => {
   try {
     const user = await signUpUser(userData);
     console.log("User: ", user);
