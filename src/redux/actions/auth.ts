@@ -1,9 +1,9 @@
 import { AUTHENTICATE_USER } from "../types";
 import { signUpUser } from "../../services/auth.services";
-import { IUser } from "../../interfaces/interfaces";
+
 import { ThunkDispatch } from "redux-thunk";
 
-export const createUser = (userData: IUser) => async (
+export const createUser = (userData: any) => async (
   dispatch: ThunkDispatch<{}, {}, any>
 ) => {
   try {

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import { connect } from "react-redux";
+import { RootState } from "../../../redux/reducers";
+import { createUser } from "../../../redux/actions/auth";
+
 import "../Auth.scss";
 
 import { IUser, IError } from "../../../interfaces/interfaces";
@@ -10,7 +14,9 @@ import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
-const Register: React.FC = () => {
+const Register: React.FC<any> = (props) => {
+  const { isAuthenticated, createUser } = props;
+
   const [user, setUser] = useState<IUser>({
     username: "",
     password: "",
@@ -33,6 +39,7 @@ const Register: React.FC = () => {
 
     if (isValid) {
       console.log(user);
+      createUser(user);
     }
   };
 
@@ -115,4 +122,8 @@ const Register: React.FC = () => {
   );
 };
 
-export default Register;
+const mapStateToProps = (state: RootState) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps, { createUser })(Register);

@@ -1,10 +1,10 @@
 import _ from "lodash";
-import { AUTHENTICATE_USER } from "../types";
+import { AUTHENTICATE_USER, AuthenticateActionTypes } from "../types";
 
-interface IAuthAction {
-  type: typeof AUTHENTICATE_USER;
-  payload: IAuthInitialState;
-}
+// interface IAuthAction {
+//   type: typeof AUTHENTICATE_USER;
+//   payload: IAuthInitialState;
+// }
 
 export interface IAuthInitialState {
   isAuthenticated: boolean;
@@ -17,7 +17,7 @@ const initialState: IAuthInitialState = {
   token: "",
 };
 
-export default (state = initialState, action: IAuthAction) => {
+export default (state = initialState, action: AuthenticateActionTypes) => {
   switch (action.type) {
     case AUTHENTICATE_USER:
       return {
