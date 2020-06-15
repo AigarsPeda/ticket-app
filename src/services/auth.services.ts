@@ -18,10 +18,6 @@ export const signUpUser = async (userData: IUser) => {
 };
 
 export const singInUser = async (userData: IUser) => {
-  const response = await axios.post(
-    `${API_ENDPOINT}/register`,
-    userData,
-    config
-  );
+  const response = await axios.post(`${API_ENDPOINT}/login`, userData, config);
   return response;
 };
