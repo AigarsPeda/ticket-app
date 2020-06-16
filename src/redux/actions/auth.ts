@@ -4,10 +4,11 @@ import { signUpUser } from "../../services/auth.services";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../reducers";
 import { Action } from "redux";
+import { IUser } from "../../interfaces/interfaces";
 
 export const createUser = (
-  userData: any
-): ThunkAction<void, RootState, any, Action<string>> => async (dispatch) => {
+  userData: IUser
+): ThunkAction<any, RootState, unknown, Action<string>> => async (dispatch) => {
   try {
     const user = await signUpUser(userData);
     console.log("User: ", user);

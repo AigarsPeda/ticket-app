@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, RouteChildrenProps } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { RootState } from "../../../redux/reducers";
@@ -14,8 +14,12 @@ import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
-const Register: React.FC<any> = (props) => {
-  const { createUser } = props;
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  RouteChildrenProps;
+
+const Register: React.FC<Props> = (props) => {
+  const { isAuthenticated, createUser, history } = props;
 
   const [user, setUser] = useState<IUser>({
     username: "",
@@ -38,7 +42,7 @@ const Register: React.FC<any> = (props) => {
     const isValid = validateInputs(user, setError);
 
     if (isValid) {
-      // console.log(user);
+      // save user to db
       createUser(user);
     }
   };
@@ -50,6 +54,12 @@ const Register: React.FC<any> = (props) => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/dashboard");
+    }
+  }, [history, isAuthenticated]);
 
   return (
     <div className="auth-wrapper">
@@ -126,4 +136,6 @@ const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated,
 });
 
-export default connect(mapStateToProps, { createUser })(Register);
+const mapDispatchToProps = { createUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
