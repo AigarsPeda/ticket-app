@@ -6,3 +6,12 @@ interface IAuthenticateUserAction {
 }
 
 export type AuthenticateActionTypes = IAuthenticateUserAction;
+
+export const SET_ERROR = "SET_ERROR";
+
+interface ISetErrorAction {
+  type: typeof SET_ERROR;
+  payload: string;
+}
+
+export type SetErrorActionTypes = ISetErrorAction;

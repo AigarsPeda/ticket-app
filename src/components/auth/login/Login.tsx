@@ -18,7 +18,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   RouteChildrenProps;
 
 const Login: React.FC<Props> = (props) => {
-  const { isAuthenticated, loginUser, history } = props;
+  const { isAuthenticated, loginUser, backEndError, history } = props;
 
   const [user, setUser] = useState<IUser>({
     username: "",
@@ -98,6 +98,9 @@ const Login: React.FC<Props> = (props) => {
             <Link to={"/sign-up"}>Sign Up</Link>
           </p>
         </form>
+        {backEndError ? (
+          <p className="error-feedback">{backEndError}</p>
+        ) : undefined}
       </div>
     </div>
   );
@@ -105,6 +108,7 @@ const Login: React.FC<Props> = (props) => {
 
 const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  backEndError: state.error.error,
 });
 
 const mapDispatchToProps = { loginUser };

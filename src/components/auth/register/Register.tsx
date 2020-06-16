@@ -19,7 +19,7 @@ type Props = ReturnType<typeof mapStateToProps> &
   RouteChildrenProps;
 
 const Register: React.FC<Props> = (props) => {
-  const { isAuthenticated, createUser, history } = props;
+  const { isAuthenticated, createUser, backEndError, history } = props;
 
   const [user, setUser] = useState<IUser>({
     username: "",
@@ -127,6 +127,9 @@ const Register: React.FC<Props> = (props) => {
             <Link to={"/sign-in"}>Login</Link>
           </p>
         </form>
+        {backEndError ? (
+          <p className="error-feedback">{backEndError}</p>
+        ) : undefined}
       </div>
     </div>
   );
@@ -134,6 +137,7 @@ const Register: React.FC<Props> = (props) => {
 
 const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated,
+  backEndError: state.error.error,
 });
 
 const mapDispatchToProps = { createUser };

@@ -1,4 +1,4 @@
-import { AUTHENTICATE_USER } from "../types";
+import { AUTHENTICATE_USER, SET_ERROR } from "../types";
 import { signUpUser, singInUser } from "../../services/auth.services";
 
 import { ThunkAction } from "redux-thunk";
@@ -20,6 +20,10 @@ export const createUser = (
   } catch (error) {
     if (error.response) {
       console.log("createUser: ", error.response.data);
+      dispatch({
+        type: SET_ERROR,
+        payload: error.response.data.message,
+      });
     }
   }
 };
@@ -38,6 +42,10 @@ export const loginUser = (
   } catch (error) {
     if (error.response) {
       console.log("createUser: ", error.response.data);
+      dispatch({
+        type: SET_ERROR,
+        payload: error.response.data.message,
+      });
     }
   }
 };
