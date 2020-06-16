@@ -1,5 +1,9 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, RouteChildrenProps } from "react-router-dom";
+
+import { loginUser } from "../../../redux/actions/auth";
+import { RootState } from "../../../redux/reducers";
+import { connect } from "react-redux";
 
 import "../Auth.scss";
 
@@ -9,7 +13,13 @@ import { validateInputs } from "../../../helpers/helpers";
 import FormInput from "../../reusable/FormInput";
 import Button from "../../reusable/Button";
 
-const Login: React.FC = () => {
+type Props = ReturnType<typeof mapStateToProps> &
+  typeof mapDispatchToProps &
+  RouteChildrenProps;
+
+const Login: React.FC<Props> = (props) => {
+  const { isAuthenticated, loginUser, history } = props;
+
   const [user, setUser] = useState<IUser>({
     username: "",
     password: "",
@@ -29,7 +39,8 @@ const Login: React.FC = () => {
     const isValid = validateInputs(user, setError);
 
     if (isValid) {
-      console.log(user);
+      // finding user in db
+      loginUser(user);
     }
   };
 
@@ -40,6 +51,12 @@ const Login: React.FC = () => {
       [name]: value,
     }));
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      history.push("/dashboard");
+    }
+  }, [history, isAuthenticated]);
 
   return (
     <div className="auth-wrapper">
@@ -86,4 +103,10 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state: RootState) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+const mapDispatchToProps = { loginUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
