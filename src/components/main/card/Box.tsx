@@ -4,7 +4,7 @@ interface Props {
   cardValue: string | number;
   title: string;
   iconClass: string;
-  cardValueClass: string;
+  cardValueClass?: string;
 }
 
 const Box: React.FC<Props> = (props) => {
