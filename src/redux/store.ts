@@ -14,6 +14,7 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
+// store type ???
 export const persistor = persistStore(store as any);
 
 export default store;

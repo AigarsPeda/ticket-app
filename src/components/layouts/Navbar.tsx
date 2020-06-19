@@ -1,0 +1,42 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { RootState } from "../../redux/reducers";
+import { loginUser } from "../../redux/actions/auth";
+
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+// & RouteChildrenProps;
+
+const Navbar: React.FC<Props> = (props) => {
+  const { isAuthenticated } = props;
+  return (
+    <>
+      {isAuthenticated ? (
+        <nav className="navbar">
+          <div className="container">
+            <Link to="/dashboard" className="navbar-brand">
+              Ticket App
+            </Link>
+            <div className="">
+              <ul className="navbar-nav ml-auto">
+                <li className="nav-item">
+                  <a href="#!" className="nav-link">
+                    <i className="fas fa-sign-out-alt"></i> <span>Logout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      ) : undefined}
+    </>
+  );
+};
+
+const mapStateToProps = (state: RootState) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+const mapDispatchToProps = { loginUser };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

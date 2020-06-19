@@ -9,12 +9,14 @@ import Login from "./components/auth/login/Login";
 import Register from "./components/auth/register/Register";
 import Dashboard from "./components/main/home/Dashboard";
 import PrivateRoute from "./components/private/PrivateRoute";
+import Navbar from "./components/layouts/Navbar";
 
 class App extends React.PureComponent {
   render() {
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
+          <Navbar />
           <div className="App container">
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
