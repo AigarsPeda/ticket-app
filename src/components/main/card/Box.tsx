@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Props {
-  cardValue: string;
+  cardValue: string | number;
   title: string;
   iconClass: string;
   cardValueClass: string;
