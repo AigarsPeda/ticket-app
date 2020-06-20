@@ -1,9 +1,16 @@
 import React from "react";
+import "./Dashboard.scss";
+
+import Card from "../card/Card";
 
 const Dashboard: React.FC = () => {
   return (
-    <div>
-      <h1>This is dashboard</h1>
+    <div className="row">
+      <div className="col-12">
+        <div className="card-box">
+          <Card />
+        </div>
+      </div>
     </div>
   );
 };
