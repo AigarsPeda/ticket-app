@@ -2,6 +2,7 @@ import React from "react";
 import "./Dashboard.scss";
 
 import Card from "../card/Card";
+import TableElements from "../table-elements/TableElements";
 
 const Dashboard: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const Dashboard: React.FC = () => {
       <div className="col-12">
         <div className="card-box">
           <Card />
+          <TableElements />
         </div>
       </div>
     </div>
