@@ -12,7 +12,7 @@ const Card: React.FC = () => {
   return (
     <>
       <Button
-        type="button"
+        type="submit"
         className="btn btn-primary btn-add"
         label="Add Ticket"
         handleClick={handleClick}
