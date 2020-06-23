@@ -1,5 +1,6 @@
 import React from "react";
 import Entries from "./elements/Entries";
+import Table from "./table/Table";
 
 const TableElements: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const TableElements: React.FC = () => {
         <label style={labelOneStyle}>Show</label>
         <Entries />
         <label style={labelTwoStyle}>Entries</label>
+        <Table />
       </div>
     </div>
   );
