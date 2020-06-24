@@ -16,7 +16,7 @@ const Table: React.FC = () => {
   return (
     <div className="col-sm-12 table-responsive">
       <table className="table table-centered mb-0" id="ticketTable">
-        <thead className="font-14 thead-dark">
+        <thead className="font-14 text-light">
           <tr>
             {TABLE_HEAD.map((tableHead, index) => {
               return (
@@ -28,7 +28,32 @@ const Table: React.FC = () => {
             })}
           </tr>
         </thead>
-        <tbody className="font-14"></tbody>
+        <tbody className="font-14 text-light">
+          <td>#12</td>
+          <td>Aigars Peda</td>
+          <td>Testing</td>
+          <td>
+            <span className="badge badge-danger">High</span>
+          </td>
+          <td>
+            <span className="badge badge-success">Open</span>
+          </td>
+          <td>12/12/2020</td>
+          <td>12/12/2020</td>
+          <td>
+            <>
+              <a className="btn text-white btn-sm">
+                <i className="fas fa-trash"></i>
+              </a>
+              <a className="btn text-white btn-sm">
+                <i className="fas fa-check"></i>
+              </a>
+              <a className="btn text-white btn-sm">
+                <i className="fas fa-pencil-alt"></i>
+              </a>
+            </>
+          </td>
+        </tbody>
       </table>
     </div>
   );
