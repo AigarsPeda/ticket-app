@@ -12,14 +12,12 @@ const AddTicket: React.FC = () => {
     setVisible(false);
   };
   return (
-    <>
-      <Modal
-        header="Add New Ticket"
-        visible={visible}
-        dismiss={hideModal}
-        children={<AddTicketForm />}
-      />
-    </>
+    <Modal
+      header="Add New Ticket"
+      visible={visible}
+      dismiss={hideModal}
+      children={<AddTicketForm />}
+    />
   );
 };
 

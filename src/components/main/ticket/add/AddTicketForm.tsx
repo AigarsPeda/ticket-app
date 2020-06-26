@@ -2,6 +2,14 @@ import React from "react";
 
 import FormInput from "../../../reusable/FormInput";
 import Button from "../../../reusable/Button";
+import DropDown from "../../../reusable/dropdown/DropDown";
+
+const LIST = [
+  { id: 0, title: "IT" },
+  { id: 1, title: "Finance" },
+  { id: 2, title: "Sales" },
+  { id: 3, title: "Marketing" },
+];
 
 const AddTicketForm: React.FC = () => {
   const onChange = () => {
@@ -34,28 +42,10 @@ const AddTicketForm: React.FC = () => {
         />
       </div>
       <div className="form-group">
-        <FormInput
-          type="text"
-          name="email"
-          label="Departments"
-          className="form-control"
-          placeholder="Enter Email"
-          value=""
-          error=""
-          onChange={onChange}
-        />
+        <DropDown title="Finance" label="Departments" list={LIST} />
       </div>
       <div className="form-group">
-        <FormInput
-          type="text"
-          name="email"
-          label="Priority"
-          className="form-control"
-          placeholder="Enter Priority"
-          value=""
-          error=""
-          onChange={onChange}
-        />
+        <DropDown title="High" label="Priority" list={LIST} />
       </div>
       <div className="form-group">
         <FormInput
