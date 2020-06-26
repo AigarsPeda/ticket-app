@@ -87,7 +87,7 @@ const AddTicketForm: React.FC = () => {
         handleClick={onChange}
       />
       <Button
-        className="btn btn-danger"
+        className="btn btn-danger ml-2"
         type="button"
         label="CANCEL"
         handleClick={onChange}

@@ -3,6 +3,7 @@ import "./Dashboard.scss";
 
 import Card from "../card/Card";
 import TableElements from "../table-elements/TableElements";
+import AddTicket from "../ticket/add/AddTicket";
 
 const Dashboard: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Dashboard: React.FC = () => {
         <div className="card-box">
           <Card />
           <TableElements />
+          <AddTicket />
         </div>
       </div>
     </div>
