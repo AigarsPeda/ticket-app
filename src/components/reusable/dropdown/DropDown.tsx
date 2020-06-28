@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "./DropDown.scss";
 
+interface List {
+  id: number;
+  title: string;
+  key: string;
+}
+
 interface Props {
   title: string;
-  list: any[];
+  list: List[];
   label: string;
 }
 
@@ -31,7 +37,7 @@ const DropDown: React.FC<Props> = (props) => {
       </div>
       {listOpen && (
         <ul className="dd-list">
-          {list.map((item: any) => {
+          {list.map((item) => {
             return (
               <li className="dd-list-item" key={item.id}>
                 {item.title}

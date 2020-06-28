@@ -45,3 +45,24 @@ export const validateInputs = (
   setError(errorMsg);
   return formValid;
 };
+
+export const departmentArray = () => {
+  const result = [
+    { id: 0, title: "IT", key: "department" },
+    { id: 1, title: "Finance", key: "department" },
+    { id: 2, title: "Human Resources", key: "department" },
+    { id: 3, title: "Sales/Marketing", key: "department" },
+  ];
+
+  return result;
+};
+
+export const prioritiesArray = () => {
+  const result = [
+    { id: 0, title: "Low", key: "priorities" },
+    { id: 1, title: "Medium", key: "priorities" },
+    { id: 2, title: "High", key: "priorities" },
+  ];
+
+  return result;
+};
