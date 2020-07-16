@@ -1,16 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 
 import FormInput from "../../../reusable/FormInput";
 import Button from "../../../reusable/Button";
-import DropDown from "../../../reusable/dropdown/DropDown";
+import DropDown, { List } from "../../../reusable/dropdown/DropDown";
 import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
 
 const AddTicketForm: React.FC = () => {
-  const onChange = () => {
-    console.log("click");
+  const [department, setDepartment] = useState("Select Department");
+  const [priority, setPriority] = useState("Select Priority");
+  const [ticket, setTicket] = useState({
+    fullname: "",
+    email: "",
+    subject: "",
+    description: "",
+    department: "",
+    priority: "",
+  });
+  // let departments = departmentArray();
+  // let priorities = prioritiesArray();
+
+  const { fullname, email, subject, description } = ticket;
+
+  const getDropDownValue = (item: List) => {
+    if (item.key === "department") {
+      setDepartment(item.title);
+    } else {
+      setPriority(item.title);
+    }
   };
+
+  const onChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setTicket((state) => ({
+      ...state,
+      [name]: value,
+    }));
+  };
+
+  const onAddTicket = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(ticket);
+  };
+
+  const onCancelClick = () => {
+    console.log("Cancel");
+  };
+
   return (
-    <form>
+    <form onSubmit={onAddTicket}>
       <div className="form-group">
         <FormInput
           type="text"
@@ -18,7 +59,7 @@ const AddTicketForm: React.FC = () => {
           label="Full Name"
           className="form-control"
           placeholder="Enter Full Name"
-          value=""
+          value={fullname}
           error=""
           onChange={onChange}
         />
@@ -30,29 +71,35 @@ const AddTicketForm: React.FC = () => {
           label="Email"
           className="form-control"
           placeholder="Enter Email"
-          value=""
+          value={email}
           error=""
           onChange={onChange}
         />
       </div>
       <div className="form-group">
         <DropDown
-          title="Finance"
+          title={department}
           label="Departments"
           list={departmentArray()}
+          getDropDownValue={getDropDownValue}
         />
       </div>
       <div className="form-group">
-        <DropDown title="High" label="Priority" list={prioritiesArray()} />
+        <DropDown
+          title={priority}
+          label="Priority"
+          list={prioritiesArray()}
+          getDropDownValue={getDropDownValue}
+        />
       </div>
       <div className="form-group">
         <FormInput
           type="text"
-          name="email"
+          name="subject"
           label="Subject"
           className="form-control"
           placeholder="Enter Subject"
-          value=""
+          value={subject}
           error=""
           onChange={onChange}
         />
@@ -62,23 +109,18 @@ const AddTicketForm: React.FC = () => {
         <textarea
           className="form-control"
           name="description"
-          value=""
-          rows={5}
+          value={description}
+          rows={2}
           cols={40}
           onChange={onChange}
         />
       </div>
-      <Button
-        className="btn btn-primary"
-        type="button"
-        label="ADD"
-        handleClick={onChange}
-      />
+      <Button className="btn btn-primary" type="submit" label="ADD" />
       <Button
         className="btn btn-danger ml-2"
         type="button"
         label="CANCEL"
-        handleClick={onChange}
+        handleClick={onCancelClick}
       />
     </form>
   );

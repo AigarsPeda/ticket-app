@@ -59,9 +59,9 @@ export const departmentArray = () => {
 
 export const prioritiesArray = () => {
   const result = [
-    { id: 0, title: "Low", key: "priorities" },
-    { id: 1, title: "Medium", key: "priorities" },
-    { id: 2, title: "High", key: "priorities" },
+    { id: 0, title: "Low", key: "priority" },
+    { id: 1, title: "Medium", key: "priority" },
+    { id: 2, title: "High", key: "priority" },
   ];
 
   return result;
