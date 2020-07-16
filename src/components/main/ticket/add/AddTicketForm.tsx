@@ -43,6 +43,8 @@ const AddTicketForm: React.FC = () => {
 
   const onAddTicket = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    ticket.department = department;
+    ticket.priority = priority;
     console.log(ticket);
   };
 
