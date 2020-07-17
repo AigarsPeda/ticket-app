@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-import FormInput from "../../../reusable/FormInput";
-import Button from "../../../reusable/Button";
-import DropDown from "../../../reusable/dropdown/DropDown";
-import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
 import {
   IDepartmentAndPriorities,
   ITicket,
 } from "../../../../interfaces/interfaces";
+
+import FormInput from "../../../reusable/FormInput";
+import Button from "../../../reusable/Button";
+import DropDown from "../../../reusable/dropdown/DropDown";
+
+import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
+import { addNewTicket } from "../../../../services/ticket.services";
 
 const AddTicketForm: React.FC = () => {
   const [department, setDepartment] = useState("Select Department");
@@ -47,7 +50,7 @@ const AddTicketForm: React.FC = () => {
     e.preventDefault();
     ticket.department = department;
     ticket.priority = priority;
-    console.log(ticket);
+    addNewTicket(ticket);
   };
 
   const onCancelClick = () => {
