@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import {
   IDepartmentAndPriorities,
-  ITicket,
+  ITicket
 } from "../../../../interfaces/interfaces";
 
 import FormInput from "../../../reusable/FormInput";
@@ -21,7 +21,7 @@ const AddTicketForm: React.FC = () => {
     subject: "",
     description: "",
     department: "",
-    priority: "",
+    priority: ""
   });
 
   const { fullname, email, subject, description } = ticket;
@@ -42,7 +42,7 @@ const AddTicketForm: React.FC = () => {
     const { name, value } = e.target;
     setTicket((state) => ({
       ...state,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -50,7 +50,7 @@ const AddTicketForm: React.FC = () => {
     e.preventDefault();
     ticket.department = department;
     ticket.priority = priority;
-    addNewTicket(ticket);
+    await addNewTicket(ticket);
   };
 
   const onCancelClick = () => {
