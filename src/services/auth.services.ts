@@ -4,8 +4,8 @@ import { IUser } from "../interfaces/interfaces";
 const API_ENDPOINT = "http://localhost:5000";
 const config = {
   headers: {
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 };
 
 export const signUpUser = async (userData: IUser) => {
