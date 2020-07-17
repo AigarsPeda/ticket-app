@@ -2,13 +2,17 @@ import React, { useState } from "react";
 
 import FormInput from "../../../reusable/FormInput";
 import Button from "../../../reusable/Button";
-import DropDown, { List } from "../../../reusable/dropdown/DropDown";
+import DropDown from "../../../reusable/dropdown/DropDown";
 import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
+import {
+  IDepartmentAndPriorities,
+  ITicket,
+} from "../../../../interfaces/interfaces";
 
 const AddTicketForm: React.FC = () => {
   const [department, setDepartment] = useState("Select Department");
   const [priority, setPriority] = useState("Select Priority");
-  const [ticket, setTicket] = useState({
+  const [ticket, setTicket] = useState<ITicket>({
     fullname: "",
     email: "",
     subject: "",
@@ -16,12 +20,10 @@ const AddTicketForm: React.FC = () => {
     department: "",
     priority: "",
   });
-  // let departments = departmentArray();
-  // let priorities = prioritiesArray();
 
   const { fullname, email, subject, description } = ticket;
 
-  const getDropDownValue = (item: List) => {
+  const getDropDownValue = (item: IDepartmentAndPriorities) => {
     if (item.key === "department") {
       setDepartment(item.title);
     } else {

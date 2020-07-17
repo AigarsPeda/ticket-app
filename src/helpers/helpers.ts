@@ -1,4 +1,8 @@
-import { IUser, IError } from "../interfaces/interfaces";
+import {
+  IUser,
+  IError,
+  IDepartmentAndPriorities,
+} from "../interfaces/interfaces";
 
 export const validateInputs = (
   userData: IUser,
@@ -47,7 +51,7 @@ export const validateInputs = (
 };
 
 export const departmentArray = () => {
-  const result = [
+  const result: IDepartmentAndPriorities[] = [
     { id: 0, title: "IT", key: "department" },
     { id: 1, title: "Finance", key: "department" },
     { id: 2, title: "Human Resources", key: "department" },
@@ -58,7 +62,7 @@ export const departmentArray = () => {
 };
 
 export const prioritiesArray = () => {
-  const result = [
+  const result: IDepartmentAndPriorities[] = [
     { id: 0, title: "Low", key: "priority" },
     { id: 1, title: "Medium", key: "priority" },
     { id: 2, title: "High", key: "priority" },

@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import "./DropDown.scss";
-
-export interface List {
-  id: number;
-  title: string;
-  key: string;
-}
+import { IDepartmentAndPriorities } from "../../../interfaces/interfaces";
 
 interface Props {
   title: string;
-  list: List[];
+  list: IDepartmentAndPriorities[];
   label: string;
-  getDropDownValue: (item: List) => void;
+  getDropDownValue: (item: IDepartmentAndPriorities) => void;
 }
 
 const DropDown: React.FC<Props> = (props) => {
@@ -23,7 +18,7 @@ const DropDown: React.FC<Props> = (props) => {
     setListOpen((state) => !state);
   };
 
-  const selectItem = (item: any) => {
+  const selectItem = (item: IDepartmentAndPriorities) => {
     getDropDownValue(item);
     setListOpen((state) => !state);
   };
