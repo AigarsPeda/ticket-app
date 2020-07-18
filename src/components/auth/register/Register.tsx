@@ -24,13 +24,13 @@ const Register: React.FC<Props> = (props) => {
   const [user, setUser] = useState<IUser>({
     username: "",
     password: "",
-    role: "",
+    role: ""
   });
 
   const [error, setError] = useState<IError>({
     usernameError: "",
     passwordError: "",
-    roleError: "",
+    roleError: ""
   });
 
   const { username, password } = user;
@@ -51,7 +51,7 @@ const Register: React.FC<Props> = (props) => {
     const { name, value } = e.target;
     setUser((state) => ({
       ...state,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -137,7 +137,7 @@ const Register: React.FC<Props> = (props) => {
 
 const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  backEndError: state.error.error,
+  backEndError: state.error.error
 });
 
 const mapDispatchToProps = { createUser };

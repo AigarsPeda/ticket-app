@@ -7,12 +7,12 @@ import { persistReducer } from "redux-persist";
 
 const persistConfig = {
   key: "root",
-  storage,
+  storage
 };
 
 const rootReducers = combineReducers({
   auth: authReducer,
-  error: errorReducer,
+  error: errorReducer
 });
 
 export default persistReducer(persistConfig, rootReducers);

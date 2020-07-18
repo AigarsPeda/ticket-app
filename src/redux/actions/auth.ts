@@ -1,6 +1,8 @@
 import { AUTHENTICATE_USER, SET_ERROR } from "../types";
 import { signUpUser, singInUser } from "../../services/auth.services";
 
+import authToken from "../../helpers/authToken";
+
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../reducers";
 import { Action } from "redux";
@@ -13,16 +15,17 @@ export const createUser = (
     const user = await signUpUser(userData);
     console.log("Created User: ", user);
     const { token } = user.data;
+    authToken(token);
     dispatch({
       type: AUTHENTICATE_USER,
-      payload: token,
+      payload: token
     });
   } catch (error) {
     if (error.response) {
       console.log("createUser: ", error.response.data);
       dispatch({
         type: SET_ERROR,
-        payload: error.response.data.message,
+        payload: error.response.data.message
       });
     }
   }
@@ -35,16 +38,17 @@ export const loginUser = (
     const user = await singInUser(userData);
     console.log("Login User: ", user);
     const { token } = user.data;
+    authToken(token);
     dispatch({
       type: AUTHENTICATE_USER,
-      payload: token,
+      payload: token
     });
   } catch (error) {
     if (error.response) {
       console.log("createUser: ", error.response.data);
       dispatch({
         type: SET_ERROR,
-        payload: error.response.data.message,
+        payload: error.response.data.message
       });
     }
   }
