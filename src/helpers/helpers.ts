@@ -1,7 +1,7 @@
 import {
   IUser,
   IError,
-  IDepartmentAndPriorities,
+  IDepartmentAndPriorities
 } from "../interfaces/interfaces";
 
 export const validateInputs = (
@@ -12,7 +12,7 @@ export const validateInputs = (
   let errorMsg = {
     usernameError: "",
     passwordError: "",
-    roleError: "",
+    roleError: ""
   };
   let formValid = true;
 
@@ -55,7 +55,7 @@ export const departmentArray = () => {
     { id: 0, title: "IT", key: "department" },
     { id: 1, title: "Finance", key: "department" },
     { id: 2, title: "Human Resources", key: "department" },
-    { id: 3, title: "Sales/Marketing", key: "department" },
+    { id: 3, title: "Sales/Marketing", key: "department" }
   ];
 
   return result;
@@ -65,7 +65,7 @@ export const prioritiesArray = () => {
   const result: IDepartmentAndPriorities[] = [
     { id: 0, title: "Low", key: "priority" },
     { id: 1, title: "Medium", key: "priority" },
-    { id: 2, title: "High", key: "priority" },
+    { id: 2, title: "High", key: "priority" }
   ];
 
   return result;
