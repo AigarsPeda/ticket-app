@@ -46,15 +46,25 @@ const AddTicketForm: React.FC = () => {
     }));
   };
 
+  const clearFormFields = () => {
+    setTicket({
+      fullname: "",
+      email: "",
+      subject: "",
+      description: "",
+      department: "",
+      priority: ""
+    });
+    setDepartment("Select Department");
+    setPriority("Select Priority");
+  };
+
   const onAddTicket = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     ticket.department = department;
     ticket.priority = priority;
     await addNewTicket(ticket);
-  };
-
-  const onCancelClick = () => {
-    console.log("Cancel");
+    clearFormFields();
   };
 
   return (
@@ -127,7 +137,7 @@ const AddTicketForm: React.FC = () => {
         className="btn btn-danger ml-2"
         type="button"
         label="CANCEL"
-        handleClick={onCancelClick}
+        handleClick={clearFormFields}
       />
     </form>
   );
