@@ -6,9 +6,7 @@ import { connect } from "react-redux";
 import { RootState } from "../../../../redux/reducers";
 import { addModal } from "../../../../redux/actions/modal";
 
-type Props = ReturnType<typeof mapStateToProps> &
-  // tslint:disable-next-line: no-use-before-declare
-  typeof mapDispatchToProps;
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const AddTicket: React.FC<Props> = (props) => {
   const { add, addModal } = props;

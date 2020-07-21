@@ -7,7 +7,6 @@ import Button from "../../reusable/Button";
 import { addModal } from "../../../redux/actions/modal";
 import { connect } from "react-redux";
 
-// tslint:disable-next-line: no-use-before-declare
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Card: React.FC<Props> = (props) => {

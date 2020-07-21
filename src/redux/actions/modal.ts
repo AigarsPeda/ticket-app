@@ -1,8 +1,12 @@
 import { SHOW_ADD_MODAL, SHOW_EDIT_MODAL, ModalActionTypes } from "./../types";
-import { Dispatch } from "redux";
+import { Action } from "redux";
+import { ThunkAction } from "redux-thunk";
+import { RootState } from "../reducers";
 
-export const addModal = (payload: boolean) => (
-  dispatch: Dispatch<ModalActionTypes>
+export const addModal = (
+  payload: boolean
+): ThunkAction<any, RootState, ModalActionTypes, Action<string>> => (
+  dispatch
 ) => {
   dispatch({
     type: SHOW_ADD_MODAL,
@@ -10,8 +14,10 @@ export const addModal = (payload: boolean) => (
   });
 };
 
-export const editModal = (payload: boolean) => (
-  dispatch: Dispatch<ModalActionTypes>
+export const editModal = (
+  payload: boolean
+): ThunkAction<any, RootState, ModalActionTypes, Action<string>> => (
+  dispatch
 ) => {
   dispatch({
     type: SHOW_EDIT_MODAL,
