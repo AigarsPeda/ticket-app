@@ -15,6 +15,7 @@ import RadioInput from "../../reusable/RadioInput";
 import Button from "../../reusable/Button";
 
 type Props = ReturnType<typeof mapStateToProps> &
+  // tslint:disable-next-line: no-use-before-declare
   typeof mapDispatchToProps &
   RouteChildrenProps;
 
