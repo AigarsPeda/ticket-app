@@ -1,9 +1,4 @@
-import {
-  SHOW_ADD_MODAL,
-  SHOW_EDIT_MODAL,
-  ShowAddModal,
-  ShowEditModal
-} from "./../types";
+import { SHOW_ADD_MODAL, SHOW_EDIT_MODAL, ModalActionTypes } from "./../types";
 
 export interface IModalInitialState {
   add: boolean;
@@ -16,7 +11,7 @@ const initialState: IModalInitialState = {
   edit: false
 };
 
-export default (state = initialState, action: ShowAddModal | ShowEditModal) => {
+export default (state = initialState, action: ModalActionTypes) => {
   switch (action.type) {
     case SHOW_ADD_MODAL:
       return {
