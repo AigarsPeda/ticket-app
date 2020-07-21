@@ -14,6 +14,7 @@ import FormInput from "../../reusable/FormInput";
 import Button from "../../reusable/Button";
 
 type Props = ReturnType<typeof mapStateToProps> &
+  // tslint:disable-next-line: no-use-before-declare
   typeof mapDispatchToProps &
   RouteChildrenProps;
 
@@ -22,12 +23,12 @@ const Login: React.FC<Props> = (props) => {
 
   const [user, setUser] = useState<IUser>({
     username: "",
-    password: "",
+    password: ""
   });
 
   const [error, setError] = useState<IError>({
     usernameError: "",
-    passwordError: "",
+    passwordError: ""
   });
 
   const { username, password } = user;
@@ -48,7 +49,7 @@ const Login: React.FC<Props> = (props) => {
     const { name, value } = e.target;
     setUser((state) => ({
       ...state,
-      [name]: value,
+      [name]: value
     }));
   };
 
@@ -108,7 +109,7 @@ const Login: React.FC<Props> = (props) => {
 
 const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated,
-  backEndError: state.error.error,
+  backEndError: state.error.error
 });
 
 const mapDispatchToProps = { loginUser };

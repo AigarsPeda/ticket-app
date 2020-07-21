@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Card.scss";
 
 import Box from "./Box";
 import Button from "../../reusable/Button";
-import Modal from "../../reusable/modal/Modal";
 
-const Card: React.FC = () => {
-  const [visible, setVisible] = useState(false);
+import { addModal } from "../../../redux/actions/modal";
+import { connect } from "react-redux";
 
-  const showModal = () => {
-    setVisible(true);
-  };
-  const hideModal = () => {
-    setVisible(false);
-  };
+// tslint:disable-next-line: no-use-before-declare
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+
+const Card: React.FC<Props> = (props) => {
+  const { addModal } = props;
 
   return (
     <>
@@ -21,13 +19,7 @@ const Card: React.FC = () => {
         type="submit"
         className="btn btn-primary btn-add"
         label="Add Ticket"
-        handleClick={showModal}
-      />
-      <Modal
-        visible={visible}
-        header="Add New Ticket"
-        dismiss={hideModal}
-        children="This is just a test "
+        handleClick={() => addModal(true)}
       />
       <div className="text-center mb-2">
         <div className="row">
@@ -50,4 +42,8 @@ const Card: React.FC = () => {
   );
 };
 
-export default Card;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = { addModal };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
