@@ -14,7 +14,7 @@ export interface IAuthInitialState {
 // Initial State
 const initialState: IAuthInitialState = {
   isAuthenticated: false,
-  token: "",
+  token: ""
 };
 
 export default (state = initialState, action: AuthenticateActionTypes) => {
@@ -23,7 +23,7 @@ export default (state = initialState, action: AuthenticateActionTypes) => {
       return {
         ...state,
         isAuthenticated: !_.isEmpty(action.payload),
-        token: action.payload,
+        token: action.payload
       };
 
     default:

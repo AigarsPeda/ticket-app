@@ -18,7 +18,7 @@ export type SetErrorActionTypes = ISetErrorAction;
 export const SHOW_ADD_MODAL = "SHOW_ADD_MODAL";
 interface IShowAddModal {
   type: typeof SHOW_ADD_MODAL;
-  payload: string;
+  payload: boolean;
 }
 export type ShowAddModal = IShowAddModal;
 
@@ -26,6 +26,6 @@ export type ShowAddModal = IShowAddModal;
 export const SHOW_EDIT_MODAL = "SHOW_EDIT_MODAL";
 interface IShowEditModal {
   type: typeof SHOW_EDIT_MODAL;
-  payload: string;
+  payload: boolean;
 }
 export type ShowEditModal = IShowEditModal;
