@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 
 import {
   IDepartmentAndPriorities,
@@ -11,7 +12,6 @@ import DropDown from "../../../reusable/dropdown/DropDown";
 
 import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
 import { addNewTicket } from "../../../../services/ticket.services";
-import { connect } from "react-redux";
 import { addModal } from "../../../../redux/actions/modal";
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
