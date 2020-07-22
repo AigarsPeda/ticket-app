@@ -11,8 +11,13 @@ import DropDown from "../../../reusable/dropdown/DropDown";
 
 import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
 import { addNewTicket } from "../../../../services/ticket.services";
+import { connect } from "react-redux";
+import { addModal } from "../../../../redux/actions/modal";
 
-const AddTicketForm: React.FC = () => {
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+
+const AddTicketForm: React.FC<Props> = (props) => {
+  const { addModal } = props;
   const [department, setDepartment] = useState("Select Department");
   const [priority, setPriority] = useState("Select Priority");
   const [ticket, setTicket] = useState<ITicket>({
@@ -57,6 +62,7 @@ const AddTicketForm: React.FC = () => {
     });
     setDepartment("Select Department");
     setPriority("Select Priority");
+    addModal(false);
   };
 
   const onAddTicket = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -143,4 +149,7 @@ const AddTicketForm: React.FC = () => {
   );
 };
 
-export default AddTicketForm;
+const mapStateToProps = () => ({});
+const mapDispatchToProps = { addModal };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddTicketForm);

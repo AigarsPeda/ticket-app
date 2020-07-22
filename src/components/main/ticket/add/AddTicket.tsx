@@ -16,8 +16,6 @@ const AddTicket: React.FC<Props> = (props) => {
     setVisible(add);
   }, [add, setVisible]);
 
-  console.log(add);
-
   return (
     <Modal
       header="Add New Ticket"
