@@ -16,3 +16,30 @@ export const addNewTicket = async (ticketData: ITicket) => {
   );
   return response;
 };
+
+export const addAllTickets = async () => {
+  const response = await axios.get(`${API_ENDPOINT}/tickets`, config);
+  return response;
+};
+
+export const editTicket = async (id: number, ticketData: ITicket) => {
+  const response = await axios.put(
+    `${API_ENDPOINT}/tickets/${id}`,
+    ticketData,
+    config
+  );
+  return response;
+};
+
+export const deleteTicket = async (id: number) => {
+  const response = await axios.delete(`${API_ENDPOINT}/tickets/${id}`, config);
+  return response;
+};
+
+export const closeTicket = async (id: number) => {
+  const response = await axios.put(
+    `${API_ENDPOINT}/tickets/mark-ticket/${id}`,
+    config
+  );
+  return response;
+};
