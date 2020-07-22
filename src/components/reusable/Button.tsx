@@ -4,12 +4,12 @@ interface IButton {
   label: string;
   type: "button" | "submit" | "reset";
   className: string;
-  disable: boolean;
+  disable?: boolean;
   handleClick?: () => void;
 }
 
 const Button: React.FC<IButton> = (props) => {
-  const { label, type, className, disable = false, handleClick } = props;
+  const { label, type, className, disable, handleClick } = props;
   return (
     <>
       <button
