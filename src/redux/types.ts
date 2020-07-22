@@ -28,3 +28,34 @@ interface IShowEditModal {
 }
 
 export type ModalActionTypes = IShowAddModal | IShowEditModal;
+
+// TICKETS
+export const GET_USER_TICKETS = "GET_USER_TICKETS";
+interface IGetUserTickets {
+  type: typeof GET_USER_TICKETS;
+  payload: boolean;
+}
+
+export const GET_ALL_TICKETS = "GET_ALL_TICKETS";
+interface IGetAllTickets {
+  type: typeof GET_ALL_TICKETS;
+  payload: boolean;
+}
+
+export const UPDATE_TABLE_ENTRIES = "UPDATE_TABLE_ENTRIES";
+interface IUpdateTableEntries {
+  type: typeof UPDATE_TABLE_ENTRIES;
+  payload: boolean;
+}
+
+export const SELECTED_TICKET = "SELECTED_TICKET";
+interface ISelectedTicket {
+  type: typeof SELECTED_TICKET;
+  payload: boolean;
+}
+
+export type TicketActionTypes =
+  | IGetUserTickets
+  | IGetAllTickets
+  | IUpdateTableEntries
+  | ISelectedTicket;
