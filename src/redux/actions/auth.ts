@@ -13,7 +13,7 @@ import { RootState } from "../reducers";
 import { Action } from "redux";
 import { IUser } from "../../interfaces/interfaces";
 
-// ThunkAction<any, RootState, AuthenticateActionTypes, Action<string>>
+// ThunkAction<any, RootState, AuthenticateActionTypes | SetErrorActionTypes, Action<string>>
 
 type AppThunk<ReturnType = any> = ThunkAction<
   ReturnType,
