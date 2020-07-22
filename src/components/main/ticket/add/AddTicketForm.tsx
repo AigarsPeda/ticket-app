@@ -138,7 +138,19 @@ const AddTicketForm: React.FC<Props> = (props) => {
           onChange={onChange}
         />
       </div>
-      <Button className="btn btn-primary" type="submit" label="ADD" />
+      <Button
+        className="btn btn-primary"
+        type="submit"
+        label="ADD"
+        disable={
+          !fullname ||
+          !email ||
+          !subject ||
+          !description ||
+          !department ||
+          !priority
+        }
+      />
       <Button
         className="btn btn-danger ml-2"
         type="button"
