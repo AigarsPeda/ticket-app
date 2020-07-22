@@ -1,4 +1,9 @@
-import { AUTHENTICATE_USER, SET_ERROR } from "../types";
+import {
+  AUTHENTICATE_USER,
+  SET_ERROR,
+  AuthenticateActionTypes,
+  SetErrorActionTypes
+} from "../types";
 import { signUpUser, singInUser } from "../../services/auth.services";
 
 import authToken from "../../helpers/authToken";
@@ -8,9 +13,16 @@ import { RootState } from "../reducers";
 import { Action } from "redux";
 import { IUser } from "../../interfaces/interfaces";
 
-export const createUser = (
-  userData: IUser
-): ThunkAction<any, RootState, unknown, Action<string>> => async (dispatch) => {
+// ThunkAction<any, RootState, AuthenticateActionTypes, Action<string>>
+
+type AppThunk<ReturnType = any> = ThunkAction<
+  ReturnType,
+  RootState,
+  AuthenticateActionTypes | SetErrorActionTypes,
+  Action<string>
+>;
+
+export const createUser = (userData: IUser): AppThunk => async (dispatch) => {
   try {
     const user = await signUpUser(userData);
     console.log("Created User: ", user);
@@ -31,9 +43,7 @@ export const createUser = (
   }
 };
 
-export const loginUser = (
-  userData: IUser
-): ThunkAction<any, RootState, unknown, Action<string>> => async (dispatch) => {
+export const loginUser = (userData: IUser): AppThunk => async (dispatch) => {
   try {
     const user = await singInUser(userData);
     console.log("Login User: ", user);

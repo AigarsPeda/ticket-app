@@ -3,22 +3,21 @@ import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootState } from "../reducers";
 
-export const addModal = (
-  payload: boolean
-): ThunkAction<any, RootState, ModalActionTypes, Action<string>> => (
-  dispatch
-) => {
+type AppThunk<ReturnType = any> = ThunkAction<
+  ReturnType,
+  RootState,
+  ModalActionTypes,
+  Action<string>
+>;
+
+export const addModal = (payload: boolean): AppThunk => (dispatch) => {
   dispatch({
     type: SHOW_ADD_MODAL,
     payload: payload
   });
 };
 
-export const editModal = (
-  payload: boolean
-): ThunkAction<any, RootState, ModalActionTypes, Action<string>> => (
-  dispatch
-) => {
+export const editModal = (payload: boolean): AppThunk => (dispatch) => {
   dispatch({
     type: SHOW_EDIT_MODAL,
     payload: payload
