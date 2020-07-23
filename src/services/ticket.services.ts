@@ -17,7 +17,7 @@ export const addNewTicket = async (ticketData: ITicket) => {
   return response;
 };
 
-export const addAllTickets = async () => {
+export const getAllTickets = async () => {
   const response = await axios.get(`${API_ENDPOINT}/tickets`, config);
   return response;
 };

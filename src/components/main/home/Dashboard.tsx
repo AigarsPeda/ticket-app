@@ -8,15 +8,17 @@ import AddTicket from "../ticket/add/AddTicket";
 import { connect } from "react-redux";
 import { RootState } from "../../../redux/reducers";
 import authToken from "../../../helpers/authToken";
+import { allTickets } from "../../../redux/actions/tickets";
 
-type Props = ReturnType<typeof mapStateToProps>;
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Dashboard: React.FC<Props> = (props) => {
-  const { token } = props;
+  const { token, allTickets } = props;
 
   useEffect(() => {
     authToken(token);
-  }, [token]);
+    allTickets();
+  }, [token, allTickets]);
 
   return (
     <div className="row">
@@ -35,6 +37,6 @@ const mapStateToProps = (state: RootState) => ({
   token: state.auth.token
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { allTickets };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

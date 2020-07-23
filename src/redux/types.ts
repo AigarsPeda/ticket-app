@@ -1,3 +1,4 @@
+import { ITicket } from "./../interfaces/interfaces";
 // AUTH TYPES
 export const AUTHENTICATE_USER = "AUTHENTICATE_USER";
 interface IAuthenticateUserAction {
@@ -33,25 +34,25 @@ export type ModalActionTypes = IShowAddModal | IShowEditModal;
 export const GET_USER_TICKETS = "GET_USER_TICKETS";
 interface IGetUserTickets {
   type: typeof GET_USER_TICKETS;
-  payload: any;
+  payload: ITicket[];
 }
 
 export const GET_ALL_TICKETS = "GET_ALL_TICKETS";
 interface IGetAllTickets {
   type: typeof GET_ALL_TICKETS;
-  payload: any;
+  payload: ITicket[];
 }
 
 export const UPDATE_TABLE_ENTRIES = "UPDATE_TABLE_ENTRIES";
 interface IUpdateTableEntries {
   type: typeof UPDATE_TABLE_ENTRIES;
-  payload: any;
+  payload: number;
 }
 
 export const SELECTED_TICKET = "SELECTED_TICKET";
 interface ISelectedTicket {
   type: typeof SELECTED_TICKET;
-  payload: any;
+  payload: ITicket | null;
 }
 
 export type TicketActionTypes =

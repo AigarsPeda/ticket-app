@@ -21,7 +21,7 @@ const AddTicketForm: React.FC<Props> = (props) => {
   const [department, setDepartment] = useState("Select Department");
   const [priority, setPriority] = useState("Select Priority");
   const [ticket, setTicket] = useState<ITicket>({
-    fullname: "",
+    fullName: "",
     email: "",
     subject: "",
     description: "",
@@ -29,7 +29,7 @@ const AddTicketForm: React.FC<Props> = (props) => {
     priority: ""
   });
 
-  const { fullname, email, subject, description } = ticket;
+  const { fullName, email, subject, description } = ticket;
 
   const getDropDownValue = (item: IDepartmentAndPriorities) => {
     if (item.key === "department") {
@@ -53,7 +53,7 @@ const AddTicketForm: React.FC<Props> = (props) => {
 
   const clearFormFields = () => {
     setTicket({
-      fullname: "",
+      fullName: "",
       email: "",
       subject: "",
       description: "",
@@ -69,6 +69,7 @@ const AddTicketForm: React.FC<Props> = (props) => {
     e.preventDefault();
     ticket.department = department;
     ticket.priority = priority;
+
     await addNewTicket(ticket);
     clearFormFields();
   };
@@ -78,11 +79,11 @@ const AddTicketForm: React.FC<Props> = (props) => {
       <div className="form-group">
         <FormInput
           type="text"
-          name="fullname"
+          name="fullName"
           label="Full Name"
           className="form-control"
           placeholder="Enter Full Name"
-          value={fullname}
+          value={fullName}
           error=""
           onChange={onChange}
         />
@@ -143,7 +144,7 @@ const AddTicketForm: React.FC<Props> = (props) => {
         type="submit"
         label="ADD"
         disable={
-          !fullname ||
+          !fullName ||
           !email ||
           !subject ||
           !description ||

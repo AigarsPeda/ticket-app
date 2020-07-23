@@ -11,7 +11,7 @@ export interface IError {
 }
 
 export interface ITicket {
-  fullname: string;
+  fullName: string;
   email: string;
   subject: string;
   description: string;
