@@ -25,7 +25,7 @@ export const allTickets = (): AppThunk => async (dispatch) => {
   try {
     const allTickets = await getAllTickets();
     const { tickets }: { tickets: ITicket[] } = allTickets.data;
-    console.log("action tickets", tickets);
+
     dispatch({
       type: GET_ALL_TICKETS,
       payload: tickets

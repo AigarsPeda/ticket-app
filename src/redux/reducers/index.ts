@@ -17,7 +17,7 @@ const rootReducers = combineReducers({
   auth: authReducer,
   error: errorReducer,
   modal: modalReducer,
-  ticket: ticketReducer
+  tickets: ticketReducer
 });
 
 export default persistReducer(persistConfig, rootReducers);

@@ -6,11 +6,12 @@ import Button from "../../reusable/Button";
 
 import { addModal } from "../../../redux/actions/modal";
 import { connect } from "react-redux";
+import { RootState } from "../../../redux/reducers";
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Card: React.FC<Props> = (props) => {
-  const { addModal } = props;
+  const { addModal, tickets } = props;
 
   return (
     <>
@@ -22,26 +23,24 @@ const Card: React.FC<Props> = (props) => {
       />
       <div className="text-center mb-2">
         <div className="row">
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
-          <Box
-            title="Open Tickets"
-            cardValue="120"
-            iconClass="fas fa-archive"
-          />
-          <Box title="Total Ticket" cardValue="40" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="20" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
-          <Box title="Total Ticket" cardValue="100" iconClass="fas fa-tag" />
+          {tickets.map((ticket) => {
+            return (
+              <Box
+                title={ticket.subject}
+                cardValue={ticket.priority}
+                iconClass="fas fa-tag"
+              />
+            );
+          })}
         </div>
       </div>
     </>
   );
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state: RootState) => ({
+  tickets: state.tickets.tickets
+});
 
 const mapDispatchToProps = { addModal };
 
