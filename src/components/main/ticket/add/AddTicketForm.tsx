@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import socketIOClient from "socket.io-client";
 
 import {
   IDepartmentAndPriorities,
@@ -13,6 +14,8 @@ import DropDown from "../../../reusable/dropdown/DropDown";
 import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
 import { addNewTicket } from "../../../../services/ticket.services";
 import { addModal } from "../../../../redux/actions/modal";
+
+const API_ENDPOINT = "http://localhost:5000";
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
@@ -30,6 +33,8 @@ const AddTicketForm: React.FC<Props> = (props) => {
   });
 
   const { fullName, email, subject, description } = ticket;
+
+  const socket = socketIOClient(API_ENDPOINT);
 
   const getDropDownValue = (item: IDepartmentAndPriorities) => {
     if (item.key === "department") {
@@ -71,6 +76,9 @@ const AddTicketForm: React.FC<Props> = (props) => {
     ticket.priority = priority;
 
     await addNewTicket(ticket);
+
+    socket.emit("refresh", {});
+
     clearFormFields();
   };
 
