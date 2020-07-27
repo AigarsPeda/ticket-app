@@ -1,12 +1,17 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
+  // mode: "development",
   entry: "./src/index.tsx",
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "bundle.js"
+    filename: "[name].[hash].bundle.js"
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
@@ -33,11 +38,20 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [
+          MiniCssExtractPlugin.loader, //3. Extract css into files
+          "css-loader", //2. Turns css into commonjs
+          "postcss-loader"
+        ]
       },
       {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader, //3. Extract css into files
+          "css-loader", //2. Turns css into commonjs
+          "postcss-loader",
+          "sass-loader" //1. Turns sass into css
+        ]
       }
     ]
   },
@@ -49,9 +63,21 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
+      minify: {
+        removeAttributeQuotes: true,
+        collapseWhitespace: true,
+        removeComments: true
+      }
     }),
-    new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true })
+    new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+    new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [autoprefixer()]
+      }
+    }),
+    new CleanWebpackPlugin()
   ],
   devtool: "eval-source-map"
 };
