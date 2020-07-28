@@ -41,9 +41,9 @@ module.exports = (env) => {
         {
           test: /\.css$/,
           use: [
-            MiniCssExtractPlugin.loader, //3. Extract css into files
-            "css-loader", //2. Turns css into commonjs
-            "postcss-loader"
+            MiniCssExtractPlugin.loader, //2. Extract css into files
+            "css-loader", //1. Turns css into commonjs
+            "postcss-loader" // Necessary for autoprefixer
           ]
         },
         {
@@ -51,7 +51,7 @@ module.exports = (env) => {
           use: [
             MiniCssExtractPlugin.loader, //3. Extract css into files
             "css-loader", //2. Turns css into commonjs
-            "postcss-loader",
+            "postcss-loader", // Necessary for autoprefixer
             "sass-loader" //1. Turns sass into css
           ]
         }
@@ -59,13 +59,12 @@ module.exports = (env) => {
     },
     devServer: {
       // This is necessary for react-route-dom to work
-
-      // contentBase: path.join(__dirname, "public"),
       historyApiFallback: true // this prevents the default browser full page refresh on form submission and link change
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",
+        favicon: "./src/assets/favicon/favicon.ico",
         minify: {
           removeAttributeQuotes: true,
           collapseWhitespace: true,
