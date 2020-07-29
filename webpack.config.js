@@ -6,13 +6,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
 
+const port = process.env.PORT || 3000;
+
 module.exports = (env) => {
   const isProduction = env === "production";
   console.log(env);
   return {
     entry: "./src/index.tsx",
     output: {
-      path: path.join(__dirname, "/dist"),
+      path: path.resolve(__dirname, "./dist"),
       filename: "[name].[hash].bundle.js"
     },
     resolve: {
@@ -59,11 +61,13 @@ module.exports = (env) => {
     },
     devServer: {
       // This is necessary for react-route-dom to work
+      contentBase: path.join(__dirname, "dist"),
       historyApiFallback: true // this prevents the default browser full page refresh on form submission and link change
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: "./src/index.html",
+        filename: "./index.html",
         favicon: "./src/assets/favicon/favicon.ico",
         minify: {
           removeAttributeQuotes: true,

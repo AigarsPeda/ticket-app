@@ -10,6 +10,7 @@ import Register from "./components/auth/register/Register";
 import Dashboard from "./components/main/home/Dashboard";
 import PrivateRoute from "./components/private/PrivateRoute";
 import Navbar from "./components/layouts/Navbar";
+import NoMatch from "./components/noMatch/NoMatch";
 
 class App extends React.PureComponent {
   render() {
@@ -23,6 +24,7 @@ class App extends React.PureComponent {
               <Route exact path="/" component={Login} />
               <Route exact path="/sign-in" component={Login} />
               <Route exact path="/sign-up" component={Register} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </PersistGate>
