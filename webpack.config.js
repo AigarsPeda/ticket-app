@@ -22,13 +22,7 @@ module.exports = (env) => {
     },
     optimization: {
       splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "initial"
-          }
-        }
+        chunks: "all"
       }
     },
     module: {
