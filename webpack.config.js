@@ -15,7 +15,7 @@ module.exports = (env) => {
     entry: "./src/index.tsx",
     output: {
       path: path.join(__dirname, "dist"),
-      filename: "[name].[hash].bundle.js"
+      filename: "js/[name].[hash].bundle.js"
     },
     resolve: {
       extensions: [".ts", ".tsx", ".js"]
@@ -75,7 +75,7 @@ module.exports = (env) => {
           removeComments: true
         }
       }),
-      new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" }),
+      new MiniCssExtractPlugin({ filename: "css/[name].[contentHash].css" }),
       new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
       new webpack.LoaderOptionsPlugin({
         options: {
