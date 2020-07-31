@@ -19,14 +19,14 @@ const labelOneStyle = {
   color: "#8a929a",
   width: "auto",
   marginLeft: "15px",
-  marginRight: "5px",
+  marginRight: "5px"
 };
 
 const labelTwoStyle = {
   color: "#8a929a",
   width: "auto",
   marginLeft: "5px",
-  marginTop: "1px",
+  marginTop: "1px"
 };
 
 export default TableElements;
