@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import moment from "moment";
 import "./Table.scss";
+import { RootState } from "../../../../redux/reducers";
+import { ITicket } from "../../../../interfaces/interfaces";
 
 const TABLE_HEAD = [
   "ID",
@@ -9,10 +13,20 @@ const TABLE_HEAD = [
   "Status",
   "Created",
   "Completed",
-  "Action",
+  "Action"
 ];
 
-const Table: React.FC = () => {
+type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+
+const Table: React.FC<Props> = (props) => {
+  const { tickets } = props;
+  const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
+
+  useEffect(() => {
+    const tableEntries = tickets.slice(0, 3);
+    setTableTickets(tableEntries);
+  }, [tickets]);
+
   return (
     <div className="col-sm-12 table-responsive">
       <table className="table table-centered mb-0" id="ticketTable">
@@ -29,36 +43,62 @@ const Table: React.FC = () => {
           </tr>
         </thead>
         <tbody className="font-14 text-light">
-          <tr>
-            <td>#12</td>
-            <td>Aigars Peda</td>
-            <td>Testing</td>
-            <td>
-              <span className="badge badge-danger">High</span>
-            </td>
-            <td>
-              <span className="badge badge-success">Open</span>
-            </td>
-            <td>12/12/2020</td>
-            <td>12/12/2020</td>
-            <td>
-              <>
-                <a className="btn text-white btn-sm">
-                  <i className="fas fa-trash"></i>
-                </a>
-                <a className="btn text-white btn-sm">
-                  <i className="fas fa-check"></i>
-                </a>
-                <a className="btn text-white btn-sm">
-                  <i className="fas fa-pencil-alt"></i>
-                </a>
-              </>
-            </td>
-          </tr>
+          {tableTickets.map((ticket) => {
+            return (
+              <tr key={ticket._id}>
+                <td>{ticket.tickedId}</td>
+                <td>{ticket.fullName}</td>
+                <td>{ticket.subject}</td>
+                <td>
+                  {ticket.priority === "High" ? (
+                    <span className="badge badge-danger">
+                      {ticket.priority}
+                    </span>
+                  ) : ticket.priority === "Medium" ? (
+                    <span className="badge badge-warning">
+                      {ticket.priority}
+                    </span>
+                  ) : (
+                    <span className="badge badge-secondary">
+                      {ticket.priority}
+                    </span>
+                  )}
+                </td>
+                <td>
+                  {ticket.status === "Open" ? (
+                    <span className="badge badge-danger">{ticket.status}</span>
+                  ) : (
+                    <span className="badge badge-success">{ticket.status}</span>
+                  )}
+                </td>
+                <td>{moment(ticket.created).format("DD/MM/YYYY")}</td>
+                <td>{moment(ticket.dueDate).format("DD/MM/YYYY")}</td>
+                <td>
+                  <>
+                    <a className="btn text-white btn-sm">
+                      <i className="fas fa-trash"></i>
+                    </a>
+                    <a className="btn text-white btn-sm">
+                      <i className="fas fa-check"></i>
+                    </a>
+                    <a className="btn text-white btn-sm">
+                      <i className="fas fa-pencil-alt"></i>
+                    </a>
+                  </>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
   );
 };
 
-export default Table;
+const mapStateToProps = (state: RootState) => ({
+  tickets: state.tickets.tickets
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

@@ -17,6 +17,11 @@ export interface ITicket {
   description: string;
   department: string;
   priority: string;
+  created?: Date;
+  dueDate?: Date;
+  status?: "Open" | "Close";
+  tickedId?: string;
+  _id?: string;
 }
 
 export interface IDepartmentAndPriorities {
