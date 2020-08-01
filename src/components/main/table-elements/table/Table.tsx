@@ -19,13 +19,13 @@ const TABLE_HEAD = [
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Table: React.FC<Props> = (props) => {
-  const { tickets } = props;
+  const { tickets, entries } = props;
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
 
   useEffect(() => {
-    const tableEntries = tickets.slice(0, 3);
+    const tableEntries = tickets.slice(0, entries);
     setTableTickets(tableEntries);
-  }, [tickets]);
+  }, [tickets, entries]);
 
   return (
     <div className="col-sm-12 table-responsive">
@@ -96,7 +96,8 @@ const Table: React.FC<Props> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  tickets: state.tickets.tickets
+  tickets: state.tickets.tickets,
+  entries: state.tickets.entries
 });
 
 const mapDispatchToProps = {};

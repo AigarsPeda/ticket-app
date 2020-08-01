@@ -9,15 +9,16 @@ import TableElements from "../table-elements/TableElements";
 import AddTicket from "../ticket/add/AddTicket";
 
 import { RootState } from "../../../redux/reducers";
+import { allTickets, updateTableEntries } from "../../../redux/actions/tickets";
 import authToken from "../../../helpers/authToken";
-import { allTickets } from "../../../redux/actions/tickets";
 
 const API_ENDPOINT = "http://localhost:5000";
+const DEFAULT_ENTRIES_VALUE = 5;
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Dashboard: React.FC<Props> = (props) => {
-  const { token, allTickets } = props;
+  const { token, allTickets, updateTableEntries } = props;
 
   const socket = socketIOClient(API_ENDPOINT);
 
@@ -27,11 +28,12 @@ const Dashboard: React.FC<Props> = (props) => {
       allTickets();
     };
     dashboardMethods();
+    updateTableEntries(DEFAULT_ENTRIES_VALUE);
 
     socket.on("refreshPage", () => {
       dashboardMethods();
     });
-  }, [socket, token, allTickets]);
+  }, [socket, token, allTickets, updateTableEntries]);
 
   return (
     <div className="row">
@@ -50,6 +52,6 @@ const mapStateToProps = (state: RootState) => ({
   token: state.auth.token
 });
 
-const mapDispatchToProps = { allTickets };
+const mapDispatchToProps = { allTickets, updateTableEntries };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
