@@ -11,16 +11,15 @@ interface IButton {
 const Button: React.FC<IButton> = (props) => {
   const { label, type, className, disable, handleClick } = props;
   return (
-    <>
-      <button
-        type={type}
-        className={className}
-        onClick={handleClick}
-        disabled={disable}
-      >
-        {label}
-      </button>
-    </>
+    <button
+      data-testid="button"
+      type={type}
+      className={className}
+      onClick={handleClick}
+      disabled={disable}
+    >
+      {label}
+    </button>
   );
 };
 

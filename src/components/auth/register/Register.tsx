@@ -12,7 +12,7 @@ import { validateInputs } from "../../../helpers/helpers";
 
 import FormInput from "../../reusable/FormInput";
 import RadioInput from "../../reusable/RadioInput";
-import Button from "../../reusable/Button";
+import Button from "../../reusable/button/Button";
 
 type Props = ReturnType<typeof mapStateToProps> &
   // tslint:disable-next-line: no-use-before-declare

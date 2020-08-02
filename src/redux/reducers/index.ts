@@ -7,6 +7,7 @@ import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import modalReducer from "./modalReducer";
 import ticketReducer from "./ticketReducer";
+import userReducer from "./userReducer";
 
 const persistConfig = {
   key: "root",
@@ -17,7 +18,8 @@ const rootReducers = combineReducers({
   auth: authReducer,
   error: errorReducer,
   modal: modalReducer,
-  tickets: ticketReducer
+  tickets: ticketReducer,
+  user: userReducer
 });
 
 export default persistReducer(persistConfig, rootReducers);

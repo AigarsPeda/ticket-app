@@ -60,3 +60,12 @@ export type TicketActionTypes =
   | IGetAllTickets
   | IUpdateTableEntries
   | ISelectedTicket;
+
+// USER
+
+export const GET_USER = "GET_USER";
+interface IGetUser {
+  type: typeof GET_USER;
+  payload: string;
+}
+export type UserActions = IGetUser;
