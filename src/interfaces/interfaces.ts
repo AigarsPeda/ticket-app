@@ -24,6 +24,15 @@ export interface ITicket {
   _id?: string;
 }
 
+export interface IUserData {
+  date: string;
+  role: string;
+  tickets: ITicket[];
+  username: String;
+  __v: number;
+  _id: string;
+}
+
 export interface IDepartmentAndPriorities {
   id: number;
   title: string;
