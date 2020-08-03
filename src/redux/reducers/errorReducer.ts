@@ -11,7 +11,7 @@ export interface IErrorInitialState {
 
 // Initial State
 const initialState: IErrorInitialState = {
-  error: "",
+  error: ""
 };
 
 export default (state = initialState, action: SetErrorActionTypes) => {
@@ -19,7 +19,7 @@ export default (state = initialState, action: SetErrorActionTypes) => {
     case SET_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: action.payload
       };
 
     default:

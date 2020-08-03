@@ -24,7 +24,6 @@ export const getUser = (): AppThunk => async (dispatch) => {
   try {
     const userData = await getUserData();
     const { user }: { user: IUserData } = userData.data;
-    console.log("User: ", user);
     dispatch({
       type: GET_USER,
       payload: user

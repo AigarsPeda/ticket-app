@@ -7,7 +7,7 @@ import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import modalReducer from "./modalReducer";
 import ticketReducer from "./ticketReducer";
-import userReducer from "./userReducer";
+import userReducer from "./userReducer/userReducer";
 
 const persistConfig = {
   key: "root",

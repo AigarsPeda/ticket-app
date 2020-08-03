@@ -66,6 +66,6 @@ export type TicketActionTypes =
 export const GET_USER = "GET_USER";
 interface IGetUser {
   type: typeof GET_USER;
-  payload: string;
+  payload: IUserData;
 }
 export type UserActions = IGetUser;

@@ -1,6 +1,6 @@
-import { IUserData } from "./../../interfaces/interfaces";
+import { IUserData } from "../../../interfaces/interfaces";
 // import { IUser } from "./../../interfaces/interfaces";
-import { GET_USER, UserActions } from "./../types";
+import { GET_USER, UserActions } from "../../types";
 
 export interface IUserInitialState {
   user: IUserData | null;
