@@ -45,7 +45,7 @@ const Navbar: React.FC<Props> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 const mapDispatchToProps = { loginUser };

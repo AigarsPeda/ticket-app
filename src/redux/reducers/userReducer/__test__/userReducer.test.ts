@@ -1,3 +1,4 @@
+import { UserActions } from "./../../../types";
 import { IUserData } from "./../../../../interfaces/interfaces";
 import { IUserInitialState } from "../userReducer";
 import userReducer from "../userReducer";
@@ -35,11 +36,12 @@ describe("userReducer", () => {
     const mockState: IUserInitialState = {
       user: null
     };
-    const mockAction = {
+    const mockAction: UserActions = {
+      // @ts-ignore
       type: "WRONG_ACTION_STRING",
       payload: user
     };
-    // @ts-ignore
+
     const state = userReducer(mockState, mockAction);
     expect(state).toEqual(mockState);
   });

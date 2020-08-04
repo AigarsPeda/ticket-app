@@ -1,4 +1,4 @@
-import { ITicket } from "./../interfaces/interfaces";
+import { ITicket, IUserData } from "./../interfaces/interfaces";
 // AUTH TYPES
 export const AUTHENTICATE_USER = "AUTHENTICATE_USER";
 interface IAuthenticateUserAction {
@@ -62,7 +62,6 @@ export type TicketActionTypes =
   | ISelectedTicket;
 
 // USER
-
 export const GET_USER = "GET_USER";
 interface IGetUser {
   type: typeof GET_USER;
