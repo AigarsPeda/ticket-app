@@ -5,7 +5,16 @@ interface IAuthenticateUserAction {
   type: typeof AUTHENTICATE_USER;
   payload: string;
 }
-export type AuthenticateActionTypes = IAuthenticateUserAction;
+
+export const LOGOUT_USER = "LOGOUT_USER";
+interface ILogoutUserAction {
+  type: typeof LOGOUT_USER;
+  payload: string;
+}
+
+export type AuthenticateActionTypes =
+  | IAuthenticateUserAction
+  | ILogoutUserAction;
 
 // ERROR
 export const SET_ERROR = "SET_ERROR";

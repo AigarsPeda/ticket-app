@@ -1,3 +1,4 @@
+import { LOGOUT_USER } from "./../types";
 import {
   AUTHENTICATE_USER,
   SET_ERROR,
@@ -62,4 +63,10 @@ export const loginUser = (userData: IUser): AppThunk => async (dispatch) => {
       });
     }
   }
+};
+
+export const logOutUser = (): AppThunk => (dispatch) => {
+  dispatch({
+    type: LOGOUT_USER
+  });
 };
