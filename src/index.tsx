@@ -6,10 +6,5 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap";
 
 import "./index.css";
-import { BrowserRouter } from "react-router-dom";
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById("root")
-);
+
+ReactDOM.render(<App />, document.getElementById("root"));

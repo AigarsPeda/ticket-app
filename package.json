@@ -76,6 +76,12 @@
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^2.3.0"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/src/__mocks__/styleMock.ts",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/fileMock.ts"
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
