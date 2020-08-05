@@ -1,10 +1,5 @@
 import { SET_ERROR, SetErrorActionTypes } from "../types";
 
-// interface IAuthAction {
-//   type: typeof AUTHENTICATE_USER;
-//   payload: IAuthInitialState;
-// }
-
 export interface IErrorInitialState {
   error: string;
 }

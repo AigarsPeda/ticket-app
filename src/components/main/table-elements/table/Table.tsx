@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import moment from "moment";
+
 import "./Table.scss";
+
 import { RootState } from "../../../../redux/reducers";
 import { ITicket } from "../../../../interfaces/interfaces";
+
+import { selectedTicket } from "../../../../redux/actions/tickets";
+import { editModal } from "../../../../redux/actions/modal";
 
 const TABLE_HEAD = [
   "ID",
@@ -19,13 +24,18 @@ const TABLE_HEAD = [
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 
 const Table: React.FC<Props> = (props) => {
-  const { tickets, entries } = props;
+  const { tickets, entries, editModal, selectedTicket } = props;
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
 
   useEffect(() => {
     const tableEntries = tickets.slice(0, entries);
     setTableTickets(tableEntries);
   }, [tickets, entries]);
+
+  const openEditModal = (ticket: ITicket) => {
+    editModal(true);
+    selectedTicket(ticket);
+  };
 
   return (
     <div className="col-sm-12 table-responsive">
@@ -81,7 +91,10 @@ const Table: React.FC<Props> = (props) => {
                     <a className="btn text-white btn-sm">
                       <i className="fas fa-check"></i>
                     </a>
-                    <a className="btn text-white btn-sm">
+                    <a
+                      onClick={() => openEditModal(ticket)}
+                      className="btn text-white btn-sm"
+                    >
                       <i className="fas fa-pencil-alt"></i>
                     </a>
                   </>
@@ -100,6 +113,6 @@ const mapStateToProps = (state: RootState) => ({
   entries: state.tickets.entries
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { editModal, selectedTicket };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

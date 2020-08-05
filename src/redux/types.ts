@@ -9,7 +9,7 @@ interface IAuthenticateUserAction {
 export const LOGOUT_USER = "LOGOUT_USER";
 interface ILogoutUserAction {
   type: typeof LOGOUT_USER;
-  payload: string;
+  // payload: string;
 }
 
 export type AuthenticateActionTypes =

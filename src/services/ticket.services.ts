@@ -22,7 +22,7 @@ export const getAllTickets = async () => {
   return response;
 };
 
-export const editTicket = async (id: number, ticketData: ITicket) => {
+export const editTicket = async (id: string, ticketData: ITicket) => {
   const response = await axios.put(
     `${API_ENDPOINT}/tickets/${id}`,
     ticketData,
