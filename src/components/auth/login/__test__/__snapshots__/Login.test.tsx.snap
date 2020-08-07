@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login /> matches snapshot 1`] = `
+<div
+  className="auth-wrapper"
+  data-testid="loginComponent"
+>
+  <div
+    className="auth-inner"
+  >
+    <form
+      onSubmit={[Function]}
+    >
+      <h3>
+        Sign In
+      </h3>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="username"
+        >
+          Username
+        </label>
+        <input
+          autoComplete="fales"
+          className="form-control"
+          name="username"
+          onChange={[Function]}
+          placeholder="Enter Username"
+          style={
+            Object {
+              "border": undefined,
+            }
+          }
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="form-group"
+      >
+        <label
+          htmlFor="password"
+        >
+          Password
+        </label>
+        <input
+          autoComplete="fales"
+          className="form-control"
+          name="password"
+          onChange={[Function]}
+          placeholder="Enter Password"
+          style={
+            Object {
+              "border": undefined,
+            }
+          }
+          type="password"
+          value=""
+        />
+      </div>
+      <button
+        className="btn btn-primary btn-block"
+        data-testid="button"
+        type="submit"
+      >
+        Sign Up
+      </button>
+      <p
+        className="forgot-password text-right"
+      >
+        Not yet registered?
+        <a
+          href="/sign-up"
+          onClick={[Function]}
+        >
+          Sign Up
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
+`;

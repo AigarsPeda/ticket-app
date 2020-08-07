@@ -60,7 +60,7 @@ const Login: React.FC<Props> = (props) => {
   }, [history, isAuthenticated]);
 
   return (
-    <div className="auth-wrapper">
+    <div className="auth-wrapper" data-testid="loginComponent">
       <div className="auth-inner">
         <form onSubmit={onLoginUser}>
           <h3>Sign In</h3>
