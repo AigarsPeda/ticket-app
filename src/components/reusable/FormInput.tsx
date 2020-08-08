@@ -22,7 +22,7 @@ const FormInput: React.FC<IFormInput> = (props) => {
     value,
     error,
     label,
-    onChange,
+    onChange
   } = props;
   return (
     <>
@@ -35,7 +35,7 @@ const FormInput: React.FC<IFormInput> = (props) => {
         value={value}
         className={className}
         onChange={onChange}
-        autoComplete="fales"
+        autoComplete="false"
         style={{ border: error ? "solid 1px red" : undefined }}
       />
       {error ? (

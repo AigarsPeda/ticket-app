@@ -23,7 +23,7 @@ exports[`<Login /> matches snapshot 1`] = `
           Username
         </label>
         <input
-          autoComplete="fales"
+          autoComplete="false"
           className="form-control"
           name="username"
           onChange={[Function]}
@@ -46,7 +46,7 @@ exports[`<Login /> matches snapshot 1`] = `
           Password
         </label>
         <input
-          autoComplete="fales"
+          autoComplete="false"
           className="form-control"
           name="password"
           onChange={[Function]}
