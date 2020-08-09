@@ -31,12 +31,12 @@ export const editTicket = async (id: string, ticketData: ITicket) => {
   return response;
 };
 
-export const deleteTicket = async (id: number) => {
+export const deleteTicket = async (id: string) => {
   const response = await axios.delete(`${API_ENDPOINT}/tickets/${id}`, config);
   return response;
 };
 
-export const closeTicket = async (id: number) => {
+export const closeTicket = async (id: string) => {
   const response = await axios.put(
     `${API_ENDPOINT}/tickets/mark-ticket/${id}`,
     config

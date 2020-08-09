@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import socketIOClient from "socket.io-client";
 import moment from "moment";
 
 import "./Table.scss";
@@ -9,6 +10,12 @@ import { ITicket } from "../../../../interfaces/interfaces";
 
 import { selectedTicket } from "../../../../redux/actions/tickets";
 import { editModal } from "../../../../redux/actions/modal";
+import {
+  deleteTicket,
+  closeTicket
+} from "../../../../services/ticket.services";
+
+const API_ENDPOINT = "http://localhost:5000";
 
 const TABLE_HEAD = [
   "ID",
@@ -27,6 +34,8 @@ const Table: React.FC<Props> = (props) => {
   const { tickets, entries, editModal, selectedTicket } = props;
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
 
+  const socket = socketIOClient(API_ENDPOINT);
+
   useEffect(() => {
     const tableEntries = tickets.slice(0, entries);
     setTableTickets(tableEntries);
@@ -35,6 +44,22 @@ const Table: React.FC<Props> = (props) => {
   const openEditModal = (ticket: ITicket) => {
     editModal(true);
     selectedTicket(ticket);
+  };
+
+  const deleteUserTicket = (ticket: ITicket) => {
+    if (!ticket || !ticket._id) {
+      return;
+    }
+    deleteTicket(ticket._id);
+    socket.emit("refresh", {});
+  };
+
+  const closeUserTicket = (ticket: ITicket) => {
+    if (!ticket || !ticket._id) {
+      return;
+    }
+    closeTicket(ticket._id);
+    socket.emit("refresh", {});
   };
 
   return (
@@ -85,10 +110,16 @@ const Table: React.FC<Props> = (props) => {
                 <td>{moment(ticket.dueDate).format("DD/MM/YYYY")}</td>
                 <td>
                   <>
-                    <a className="btn text-white btn-sm">
+                    <a
+                      onClick={() => deleteUserTicket(ticket)}
+                      className="btn text-white btn-sm"
+                    >
                       <i className="fas fa-trash"></i>
                     </a>
-                    <a className="btn text-white btn-sm">
+                    <a
+                      onClick={() => closeUserTicket(ticket)}
+                      className="btn text-white btn-sm"
+                    >
                       <i className="fas fa-check"></i>
                     </a>
                     <a
