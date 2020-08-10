@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import socketIOClient from "socket.io-client";
 import moment from "moment";
 
@@ -28,10 +28,13 @@ const TABLE_HEAD = [
   "Action"
 ];
 
-type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+// REFACTORED TABLE COMPONENT TO USE useSelector AND useDispatch HOOK FROM REDUX
 
-const Table: React.FC<Props> = (props) => {
-  const { tickets, entries, editModal, selectedTicket } = props;
+const Table: React.FC = () => {
+  const tickets = useSelector((state: RootState) => state.tickets.tickets);
+  const entries = useSelector((state: RootState) => state.tickets.entries);
+  const dispatch = useDispatch();
+
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
 
   const socket = socketIOClient(API_ENDPOINT);
@@ -42,8 +45,8 @@ const Table: React.FC<Props> = (props) => {
   }, [tickets, entries]);
 
   const openEditModal = (ticket: ITicket) => {
-    editModal(true);
-    selectedTicket(ticket);
+    dispatch(editModal(true));
+    dispatch(selectedTicket(ticket));
   };
 
   const deleteUserTicket = (ticket: ITicket) => {
@@ -139,11 +142,4 @@ const Table: React.FC<Props> = (props) => {
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  tickets: state.tickets.tickets,
-  entries: state.tickets.entries
-});
-
-const mapDispatchToProps = { editModal, selectedTicket };
-
-export default connect(mapStateToProps, mapDispatchToProps)(Table);
+export default Table;
