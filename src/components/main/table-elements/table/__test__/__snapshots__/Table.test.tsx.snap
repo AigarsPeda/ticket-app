@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table /> matches snapshot 1`] = `
+<div
+  className="col-sm-12 table-responsive"
+  data-testid="tableComponent"
+>
+  <table
+    className="table table-centered mb-0"
+    id="ticketTable"
+  >
+    <thead
+      className="font-14 text-light"
+    >
+      <tr>
+        <th
+          className="font-weight-medium"
+        >
+          ID
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Full Name
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Subject
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Priority
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Status
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Created
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Completed
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+        <th
+          className="font-weight-medium"
+        >
+          Action
+           
+          <i
+            className="fas fa-angle-up icon"
+          />
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className="font-14 text-light"
+    />
+  </table>
+</div>
+`;

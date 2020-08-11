@@ -66,7 +66,7 @@ const Table: React.FC = () => {
   };
 
   return (
-    <div className="col-sm-12 table-responsive">
+    <div className="col-sm-12 table-responsive" data-testid="tableComponent">
       <table className="table table-centered mb-0" id="ticketTable">
         <thead className="font-14 text-light">
           <tr>
