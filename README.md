@@ -19,7 +19,7 @@ https://github.com/AigarsPeda/ticket-app-backend
 
 ### npm run dev - start dev server
 
-### For backend
+## For backend
 
 for back end you will also need MongoDB to be installed
 https://www.mongodb.com/
