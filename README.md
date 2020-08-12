@@ -5,17 +5,19 @@ https://github.com/AigarsPeda/ticket-app-backend
 
 ### Download dependencies For both run
 
-npm i
+### npm i
 
-### Scripts For front-end
+## Available Scripts For front-end
 
-npm run start - start dev server
-npm run test - run test
-npm run build - builds prod. ready page
+### npm run start - start dev server
 
-### Scripts For backend
+### npm run test - run test
 
-npm run dev - start dev server
+### npm run build - builds prod. ready page
+
+## Available Scripts For backend
+
+### npm run dev - start dev server
 
 ### For backend
 
