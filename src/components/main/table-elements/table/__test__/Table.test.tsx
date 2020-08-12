@@ -18,7 +18,7 @@ const ticketDataArray = [
   {
     fullName: "Aigars",
     email: "aigarspeda@gmail.com",
-    subject: "Test",
+    subject: "Test_1",
     description: "test",
     department: "IT",
     priority: "Low",
@@ -27,6 +27,19 @@ const ticketDataArray = [
     status: "Open",
     tickedId: "12334354454",
     _id: "121132334545465"
+  },
+  {
+    fullName: "Oskars",
+    email: "oskars@gmail.com",
+    subject: "Test_2",
+    description: "test_2",
+    department: "IT",
+    priority: "Low",
+    created: "2020-08-09T17:05:29.739Z",
+    dueDate: "2020-08-09T17:05:29.739Z",
+    status: "Close",
+    tickedId: "12334354455",
+    _id: "121132334545467"
   }
 ];
 

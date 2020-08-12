@@ -98,7 +98,7 @@ exports[`<Table /> matches snapshot 1`] = `
           Aigars
         </td>
         <td>
-          Test
+          Test_1
         </td>
         <td>
           <span
@@ -139,6 +139,63 @@ exports[`<Table /> matches snapshot 1`] = `
           </a>
           <a
             className="btn text-white btn-sm"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-pencil-alt"
+            />
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          12334354455
+        </td>
+        <td>
+          Oskars
+        </td>
+        <td>
+          Test_2
+        </td>
+        <td>
+          <span
+            className="badge badge-secondary"
+          >
+            Low
+          </span>
+        </td>
+        <td>
+          <span
+            className="badge badge-success"
+          >
+            Close
+          </span>
+        </td>
+        <td>
+          09/08/2020
+        </td>
+        <td>
+          09/08/2020
+        </td>
+        <td>
+          <a
+            className="btn text-white btn-sm"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-trash"
+            />
+          </a>
+          <a
+            className="btn text-white btn-sm disabled"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-check"
+            />
+          </a>
+          <a
+            className="btn text-white btn-sm disabled"
             onClick={[Function]}
           >
             <i
