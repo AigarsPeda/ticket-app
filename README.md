@@ -9,15 +9,32 @@ https://github.com/AigarsPeda/ticket-app-backend
 
 ## Available Scripts For front-end
 
-### npm run start - start dev server
+### npm run start
 
-### npm run test - run test
+Runs the app in the development mode.<br />
+Open [http://localhost:8080/](http://localhost:8080/) to view it in the browser.
 
-### npm run build - builds prod. ready page
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
+
+### npm run test
+
+Launches the test runner in the interactive watch mode.<br />
+
+### npm run build
+
+Builds the app for production to the `dist` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ## Available Scripts For backend
 
-### npm run dev - start dev server
+### npm run dev
+
+Runs the app in the development mode.<br />
+Open [http://localhost:5000/](http://localhost:5000/) to view it in the browser.
+
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
 ## For backend
 
