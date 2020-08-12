@@ -22,6 +22,8 @@ const ticketDataArray = [
     description: "test",
     department: "IT",
     priority: "Low",
+    created: "2020-08-09T17:05:29.739Z",
+    dueDate: "2020-08-09T17:05:29.739Z",
     status: "Open",
     tickedId: "12334354454",
     _id: "121132334545465"
@@ -82,7 +84,12 @@ describe("<Table />", () => {
     expect(container.find("tbody")).toHaveLength(1);
     expect(container.find("th")).toHaveLength(8);
     const tbody = container.find("tbody");
-    expect(tbody.find("tr")).toHaveLength(ticketDataArray.length);
+    const tr = tbody.find("tr");
+    expect(tr).toHaveLength(ticketDataArray.length);
+
+    // tr.forEach((tr, idx) => {
+    //   expect(tr.text()).toEqual(Object.values(ticketDataArray[idx]));
+    // });
   });
 
   it("matches snapshot", () => {
