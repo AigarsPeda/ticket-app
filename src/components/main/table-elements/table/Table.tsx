@@ -121,13 +121,21 @@ const Table: React.FC = () => {
                     </a>
                     <a
                       onClick={() => closeUserTicket(ticket)}
-                      className="btn text-white btn-sm"
+                      className={
+                        ticket.status === "Open"
+                          ? "btn text-white btn-sm"
+                          : "btn text-white btn-sm disabled"
+                      }
                     >
                       <i className="fas fa-check"></i>
                     </a>
                     <a
                       onClick={() => openEditModal(ticket)}
-                      className="btn text-white btn-sm"
+                      className={
+                        ticket.status === "Open"
+                          ? "btn text-white btn-sm"
+                          : "btn text-white btn-sm disabled"
+                      }
                     >
                       <i className="fas fa-pencil-alt"></i>
                     </a>
