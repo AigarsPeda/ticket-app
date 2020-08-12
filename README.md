@@ -3,9 +3,7 @@
 To be able to use the front-end you will also need
 https://github.com/AigarsPeda/ticket-app-backend
 
-## Download dependencies
-
-### For both run
+### Download dependencies For both run
 
 npm i
 
