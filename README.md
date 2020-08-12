@@ -1,5 +1,3 @@
-# Instruction
-
 To be able to use the front-end you will also need
 https://github.com/AigarsPeda/ticket-app-backend
 
