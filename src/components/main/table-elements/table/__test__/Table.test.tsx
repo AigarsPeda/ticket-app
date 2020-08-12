@@ -101,10 +101,6 @@ describe("<Table />", () => {
     expect(container.find("tbody")).toHaveLength(1);
     expect(container.find("th")).toHaveLength(8);
     expect(tr).toHaveLength(ticketDataArray.length);
-
-    // tr.forEach((tr, idx) => {
-    //   expect(tr.text()).toEqual(Object.values(ticketDataArray[idx]));
-    // });
   });
 
   it("matches snapshot", () => {
