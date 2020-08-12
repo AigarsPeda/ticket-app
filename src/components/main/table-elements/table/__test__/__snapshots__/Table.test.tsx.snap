@@ -89,7 +89,65 @@ exports[`<Table /> matches snapshot 1`] = `
     </thead>
     <tbody
       className="font-14 text-light"
-    />
+    >
+      <tr>
+        <td>
+          12334354454
+        </td>
+        <td>
+          Aigars
+        </td>
+        <td>
+          Test
+        </td>
+        <td>
+          <span
+            className="badge badge-secondary"
+          >
+            Low
+          </span>
+        </td>
+        <td>
+          <span
+            className="badge badge-danger"
+          >
+            Open
+          </span>
+        </td>
+        <td>
+          11/08/2020
+        </td>
+        <td>
+          11/08/2020
+        </td>
+        <td>
+          <a
+            className="btn text-white btn-sm"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-trash"
+            />
+          </a>
+          <a
+            className="btn text-white btn-sm"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-check"
+            />
+          </a>
+          <a
+            className="btn text-white btn-sm"
+            onClick={[Function]}
+          >
+            <i
+              className="fas fa-pencil-alt"
+            />
+          </a>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
 `;
