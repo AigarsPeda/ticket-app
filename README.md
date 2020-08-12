@@ -3,7 +3,7 @@
 To be able to use the front-end you will also need
 https://github.com/AigarsPeda/ticket-app-backend
 
-## Download dependencies For both run
+## Download dependencies For both (front-end and back-end) run
 
 ### `npm i`
 
@@ -36,7 +36,7 @@ Open [http://localhost:5000/](http://localhost:5000/) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-## For backend
+## For back-end
 
 for back end you will also need MongoDB to be installed
 https://www.mongodb.com/
