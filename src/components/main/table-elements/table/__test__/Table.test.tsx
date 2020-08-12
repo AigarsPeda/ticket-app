@@ -92,12 +92,14 @@ describe("<Table />", () => {
       </Provider>
     );
     // console.log(container.debug());
+
+    const tbody = container.find("tbody");
+    const tr = tbody.find("tr");
+
     expect(container).toHaveLength(1);
     expect(container.find("table")).toHaveLength(1);
     expect(container.find("tbody")).toHaveLength(1);
     expect(container.find("th")).toHaveLength(8);
-    const tbody = container.find("tbody");
-    const tr = tbody.find("tr");
     expect(tr).toHaveLength(ticketDataArray.length);
 
     // tr.forEach((tr, idx) => {
