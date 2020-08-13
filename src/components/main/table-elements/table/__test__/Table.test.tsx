@@ -96,20 +96,20 @@ describe("<Table />", () => {
   });
 
   it("testing table", () => {
-    const container = mount(
+    const wrapper = mount(
       <Provider store={store}>
         <Table />
       </Provider>
     );
-    // console.log(container.debug());
+    // console.log(wrapper.debug());
 
-    const tbody = container.find("tbody");
+    const tbody = wrapper.find("tbody");
     const tr = tbody.find("tr");
 
-    expect(container).toHaveLength(1);
-    expect(container.find("table")).toHaveLength(1);
-    expect(container.find("tbody")).toHaveLength(1);
-    expect(container.find("th")).toHaveLength(8);
+    expect(wrapper).toHaveLength(1);
+    expect(wrapper.find("table")).toHaveLength(1);
+    expect(wrapper.find("tbody")).toHaveLength(1);
+    expect(wrapper.find("th")).toHaveLength(8);
     expect(tr).toHaveLength(ticketDataArray.length);
   });
 
