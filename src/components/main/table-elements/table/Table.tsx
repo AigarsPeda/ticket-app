@@ -33,6 +33,7 @@ const TABLE_HEAD = [
 const Table: React.FC = () => {
   const tickets = useSelector((state: RootState) => state.tickets.tickets);
   const entries = useSelector((state: RootState) => state.tickets.entries);
+  const user = useSelector((state: RootState) => state.user.user);
   const dispatch = useDispatch();
 
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
@@ -112,34 +113,69 @@ const Table: React.FC = () => {
                 <td>{moment(ticket.created).format("DD/MM/YYYY")}</td>
                 <td>{moment(ticket.dueDate).format("DD/MM/YYYY")}</td>
                 <td>
-                  <>
-                    <a
-                      onClick={() => deleteUserTicket(ticket)}
-                      className="btn text-white btn-sm"
-                    >
-                      <i className="fas fa-trash"></i>
-                    </a>
-                    <a
-                      onClick={() => closeUserTicket(ticket)}
-                      className={
-                        ticket.status === "Open"
-                          ? "btn text-white btn-sm"
-                          : "btn text-white btn-sm disabled"
-                      }
-                    >
-                      <i className="fas fa-check"></i>
-                    </a>
-                    <a
-                      onClick={() => openEditModal(ticket)}
-                      className={
-                        ticket.status === "Open"
-                          ? "btn text-white btn-sm"
-                          : "btn text-white btn-sm disabled"
-                      }
-                    >
-                      <i className="fas fa-pencil-alt"></i>
-                    </a>
-                  </>
+                  {user._id === ticket.user ? (
+                    <>
+                      <a
+                        onClick={() => deleteUserTicket(ticket)}
+                        className="btn text-white btn-sm"
+                      >
+                        <i className="fas fa-trash"></i>
+                      </a>
+                      <a
+                        onClick={() => closeUserTicket(ticket)}
+                        className={
+                          ticket.status === "Open"
+                            ? "btn text-white btn-sm"
+                            : "btn text-white btn-sm disabled"
+                        }
+                      >
+                        <i className="fas fa-check"></i>
+                      </a>
+                      <a
+                        onClick={() => openEditModal(ticket)}
+                        className={
+                          ticket.status === "Open"
+                            ? "btn text-white btn-sm"
+                            : "btn text-white btn-sm disabled"
+                        }
+                      >
+                        <i className="fas fa-pencil-alt"></i>
+                      </a>
+                    </>
+                  ) : user.role === "Admin" ? (
+                    <>
+                      <a
+                        onClick={() => deleteUserTicket(ticket)}
+                        className="btn text-white btn-sm"
+                      >
+                        <i className="fas fa-trash"></i>
+                      </a>
+                      <a
+                        onClick={() => closeUserTicket(ticket)}
+                        className="btn text-white btn-sm"
+                      >
+                        <i className="fas fa-check"></i>
+                      </a>
+                      <a
+                        onClick={() => openEditModal(ticket)}
+                        className="btn text-white btn-sm"
+                      >
+                        <i className="fas fa-pencil-alt"></i>
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      <a className="btn text-white btn-sm disabled">
+                        <i className="fas fa-trash"></i>
+                      </a>
+                      <a className="btn text-white btn-sm disabled">
+                        <i className="fas fa-check"></i>
+                      </a>
+                      <a className="btn text-white btn-sm disabled">
+                        <i className="fas fa-pencil-alt"></i>
+                      </a>
+                    </>
+                  )}
                 </td>
               </tr>
             );

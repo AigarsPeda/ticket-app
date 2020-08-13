@@ -20,7 +20,14 @@ beforeEach(() => {
 describe("userReducer", () => {
   it("should save user data in state", () => {
     const mockState: IUserInitialState = {
-      user: null
+      user: {
+        date: "",
+        role: "",
+        tickets: [],
+        username: "",
+        __v: 0,
+        _id: ""
+      }
     };
 
     // const mockAction = {
@@ -34,7 +41,14 @@ describe("userReducer", () => {
 
   it("should return default state / unchanged", () => {
     const mockState: IUserInitialState = {
-      user: null
+      user: {
+        date: "",
+        role: "",
+        tickets: [],
+        username: "",
+        __v: 0,
+        _id: ""
+      }
     };
     const mockAction: UserActions = {
       // @ts-ignore
