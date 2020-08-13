@@ -11,17 +11,6 @@ export interface IError {
 }
 
 export interface ITicket {
-  // fullName: string;
-  // email: string;
-  // subject: string;
-  // description: string;
-  // department: string;
-  // priority: string;
-  // created?: Date;
-  // dueDate?: Date;
-  // status?: "Open" | "Close";
-  // tickedId?: string;
-  // _id?: string;
   closed?: boolean;
   created?: Date;
   department: string;
