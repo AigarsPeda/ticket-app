@@ -21,12 +21,12 @@ describe("userReducer", () => {
   it("should save user data in state", () => {
     const mockState: IUserInitialState = {
       user: {
-        date: "",
-        role: "",
+        date: "2020-07-22T19:09:34.349Z",
+        role: "User",
         tickets: [],
-        username: "",
+        username: "Oskars",
         __v: 0,
-        _id: ""
+        _id: "5f188eeecebc2f159f3445f4"
       }
     };
 
@@ -36,7 +36,7 @@ describe("userReducer", () => {
     // };
 
     const state = userReducer(mockState, { type: GET_USER, payload: user });
-    expect(state).toEqual(user);
+    expect(state.user).toEqual(user);
   });
 
   it("should return default state / unchanged", () => {
@@ -57,6 +57,6 @@ describe("userReducer", () => {
     };
 
     const state = userReducer(mockState, mockAction);
-    expect(state).toEqual(mockState);
+    expect(state.user).toEqual(mockState.user);
   });
 });

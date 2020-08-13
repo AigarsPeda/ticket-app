@@ -58,6 +58,16 @@ beforeEach(() => {
     },
     entries: {
       entries: 5
+    },
+    user: {
+      user: {
+        // date: "2020-08-13T06:45:10.963Z",
+        // role: "User",
+        // tickets: [],
+        // username: "Aigarsp1",
+        // __v: 0,
+        // _id: "5f34e176cd9f5238ec3fe1ba"
+      }
     }
   };
   mockStore = configureMockStore();
