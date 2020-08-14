@@ -2,19 +2,19 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { RootState } from "../../redux/reducers";
-import { loginUser, logOutUser } from "../../redux/actions/auth";
+import { loginUser, logOut } from "../../redux/actions/auth";
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 // & RouteChildrenProps;
 
 const Navbar: React.FC<Props> = (props) => {
-  const { isAuthenticated, logOutUser } = props;
+  const { isAuthenticated, logOut } = props;
   const history = useHistory();
 
   const logoutUserButton = () => {
     history.push("/");
     console.log("Click");
-    logOutUser();
+    logOut();
   };
 
   return (
@@ -49,6 +49,6 @@ const mapStateToProps = (state: RootState) => ({
   isAuthenticated: state.auth.isAuthenticated
 });
 
-const mapDispatchToProps = { loginUser, logOutUser };
+const mapDispatchToProps = { loginUser, logOut };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

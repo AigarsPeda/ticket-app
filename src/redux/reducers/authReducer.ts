@@ -1,4 +1,3 @@
-import { LOGOUT_USER } from "./../types";
 import _ from "lodash";
 import { AUTHENTICATE_USER, AuthenticateActionTypes } from "../types";
 
@@ -20,11 +19,6 @@ export default (state = initialState, action: AuthenticateActionTypes) => {
         ...state,
         isAuthenticated: !_.isEmpty(action.payload),
         token: action.payload
-      };
-    case LOGOUT_USER:
-      return {
-        isAuthenticated: false,
-        token: ""
       };
 
     default:

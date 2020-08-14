@@ -6,15 +6,7 @@ interface IAuthenticateUserAction {
   payload: string;
 }
 
-export const LOGOUT_USER = "LOGOUT_USER";
-interface ILogoutUserAction {
-  type: typeof LOGOUT_USER;
-  // payload: string;
-}
-
-export type AuthenticateActionTypes =
-  | IAuthenticateUserAction
-  | ILogoutUserAction;
+export type AuthenticateActionTypes = IAuthenticateUserAction;
 
 // ERROR
 export const SET_ERROR = "SET_ERROR";
@@ -77,3 +69,12 @@ interface IGetUser {
   payload: IUserData;
 }
 export type UserActions = IGetUser;
+
+// LOGOUT
+export const LOGOUT = "LOGOUT";
+interface ILogout {
+  type: typeof LOGOUT;
+  payload: null;
+}
+
+export type LogOutActionTypes = ILogout;
