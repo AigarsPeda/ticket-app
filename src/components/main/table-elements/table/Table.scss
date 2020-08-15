@@ -29,10 +29,12 @@
   border-bottom: 1px solid #495561;
   padding-top: 20px !important;
   padding-bottom: 20px !important;
-}
 
-.table tr:hover {
-  background-color: #495561;
+  tr {
+    &:hover {
+      background-color: #495561;
+    }
+  }
 }
 
 .font-13 {

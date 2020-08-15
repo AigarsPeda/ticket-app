@@ -42,7 +42,6 @@ const appReducers = combineReducers({
 });
 
 // TO DO - WHAT IS THOSE ANY ?
-
 const rootReducers = (state: IDefaultState | undefined, action: any) => {
   let newState = state;
   if (action.type === LOGOUT) {
