@@ -4,7 +4,7 @@ import _ from "lodash";
 
 import "./Card.scss";
 
-import Box from "./Box";
+import Box from "./Box/Box";
 import Button from "../../reusable/button/Button";
 
 import { addModal } from "../../../redux/actions/modal";

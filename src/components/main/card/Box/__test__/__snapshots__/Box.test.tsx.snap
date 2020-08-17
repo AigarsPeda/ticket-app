@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button component matches snapshot 1`] = `
+<div
+  className="col-md-6 col-xl-4"
+>
+  <div
+    className="card-box border"
+  >
+    <i
+      className="fas fa-tag font-24"
+    />
+    <h3>
+      2
+    </h3>
+    <p
+      className="text-uppercase font-13 font-weight-medium mb-1"
+    >
+      Total Tickets
+    </p>
+  </div>
+</div>
+`;
