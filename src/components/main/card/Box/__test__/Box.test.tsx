@@ -15,7 +15,12 @@ describe("<Box /> component", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     ReactDOM.render(
-      <Box title="Total Tickets" cardValue={2} iconClass="fas fa-tag" />,
+      <Box
+        title="Total Tickets"
+        cardValue={2}
+        iconClass="fas fa-tag"
+        cardValueClass="text-success"
+      />,
       div
     );
     ReactDOM.unmountComponentAtNode(div);
@@ -23,11 +28,19 @@ describe("<Box /> component", () => {
 
   it("testing table", () => {
     const wrapper = mount(
-      <Box title="Total Tickets" cardValue={2} iconClass="fas fa-tag" />
+      <Box
+        title="Total Tickets"
+        cardValue={2}
+        iconClass="fas fa-tag"
+        cardValueClass="text-success"
+      />
     );
+
     // console.log(wrapper.debug());
 
     expect(wrapper.find("p").text()).toBe("Total Tickets");
+    expect(wrapper.find("h3").text()).toBe("2");
+    expect(wrapper.find("h3").hasClass("text-success")).toBe(true);
   });
 
   it("matches snapshot", () => {
