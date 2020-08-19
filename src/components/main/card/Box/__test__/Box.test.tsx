@@ -20,6 +20,8 @@ describe("<Box /> component", () => {
         cardValue={2}
         iconClass="fas fa-tag"
         cardValueClass="text-success"
+        type="High"
+        status="priority"
       />,
       div
     );
@@ -33,6 +35,8 @@ describe("<Box /> component", () => {
         cardValue={2}
         iconClass="fas fa-tag"
         cardValueClass="text-success"
+        type="High"
+        status="priority"
       />
     );
 
@@ -46,7 +50,13 @@ describe("<Box /> component", () => {
   it("matches snapshot", () => {
     const tree = renderer
       .create(
-        <Box title="Total Tickets" cardValue={2} iconClass="fas fa-tag" />
+        <Box
+          title="Total Tickets"
+          cardValue={2}
+          iconClass="fas fa-tag"
+          type="High"
+          status="priority"
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
