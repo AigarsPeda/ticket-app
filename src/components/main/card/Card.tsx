@@ -37,36 +37,48 @@ const Card: React.FC<Props> = (props) => {
             title="Total Tickets"
             cardValue={tickets.length}
             iconClass="fas fa-tag"
+            type="Total"
+            status="all"
           />
           <Box
             title="Open Tickets"
             cardValue={findByStatus("Open")}
             iconClass="fas fa-shield-alt"
             cardValueClass="text-success"
+            type="Open"
+            status="status"
           />
           <Box
             title="Open Close"
             cardValue={findByStatus("Close")}
             iconClass="fas fa-shield-alt"
             cardValueClass="text-muted"
+            type="Close"
+            status="status"
           />
           <Box
             title="High Priority Tickets"
             cardValue={findByPriority("High")}
             iconClass="fas fa-temperature-high"
             cardValueClass="text-danger"
+            type="High"
+            status="priority"
           />
           <Box
             title="Medium Priority Tickets"
             cardValue={findByPriority("Medium")}
             iconClass="fas fa-folder-minus"
             cardValueClass="text-warning"
+            type="Medium"
+            status="priority"
           />
           <Box
             title="Low Priority Tickets"
             cardValue={findByPriority("Low")}
             iconClass="fas fa-battery-quarter"
             cardValueClass="text-muted"
+            type="Low"
+            status="priority"
           />
         </div>
       </div>
