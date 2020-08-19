@@ -1,5 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const LinkTypePlugin = require("html-webpack-link-type-plugin")
+  .HtmlWebpackLinkTypePlugin;
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -68,6 +70,9 @@ module.exports = (env) => {
           collapseWhitespace: true,
           removeComments: true
         }
+      }),
+      new LinkTypePlugin({
+        "**/*.css": "text/css"
       }),
       new MiniCssExtractPlugin({ filename: "css/[name].[contentHash].css" }),
       new ForkTsCheckerWebpackPlugin({ checkSyntacticErrors: true }),
