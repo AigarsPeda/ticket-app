@@ -10,7 +10,7 @@ type propsFromRoute = {
 };
 
 type Props = ReturnType<typeof mapStateToProps> & propsFromRoute;
-//RouteChildrenProps &
+// RouteChildrenProps &
 // & typeof mapDispatchToProps
 
 const PrivateRoute: React.FC<Props> = (props) => {
@@ -23,7 +23,7 @@ const PrivateRoute: React.FC<Props> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(mapStateToProps, {})(PrivateRoute);
