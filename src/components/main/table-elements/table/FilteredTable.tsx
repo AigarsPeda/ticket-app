@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import socketIOClient from "socket.io-client";
+import _ from "lodash";
 import moment from "moment";
 
 import "./Table.scss";
@@ -31,6 +32,11 @@ const TABLE_HEAD = [
   "Action"
 ];
 
+interface ParamTypes {
+  type: "Total" | "Open" | "Close" | "Medium" | "Low";
+  status: "all" | "status" | "priority";
+}
+
 // REFACTORED TABLE COMPONENT TO USE useSelector AND useDispatch HOOK FROM REDUX
 
 const FilteredTable: React.FC = () => {
@@ -40,15 +46,30 @@ const FilteredTable: React.FC = () => {
   const dispatch = useDispatch();
 
   const history = useHistory();
+  const { type, status } = useParams<ParamTypes>();
 
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
 
   const socket = socketIOClient(API_ENDPOINT);
 
   useEffect(() => {
-    const tableEntries = tickets.slice(0, entries);
-    setTableTickets(tableEntries);
-  }, [tickets, entries]);
+    const filterTickets = (value: string) => {
+      if (status === "all") {
+        const tableEntries = tickets.slice(0, entries);
+        setTableTickets(tableEntries);
+      } else if (status === "priority") {
+        const result = _.filter(tickets, ["priority", value]);
+        const tableEntries = result.slice(0, entries);
+        setTableTickets(tableEntries);
+      } else {
+        const result = _.filter(tickets, ["status", value]);
+        const tableEntries = result.slice(0, entries);
+        setTableTickets(tableEntries);
+      }
+    };
+
+    filterTickets(type);
+  }, [type, status, tickets, entries]);
 
   const openEditModal = (ticket: ITicket) => {
     dispatch(editModal(true));
