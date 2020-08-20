@@ -49,6 +49,7 @@ const FilteredTable: React.FC = () => {
   const { type, status } = useParams<ParamTypes>();
 
   const [tableTickets, setTableTickets] = useState<ITicket[]>(tickets);
+  const [title, setTitle] = useState<string>("");
 
   const socket = socketIOClient(API_ENDPOINT);
 
@@ -57,14 +58,17 @@ const FilteredTable: React.FC = () => {
       if (status === "all") {
         const tableEntries = tickets.slice(0, entries);
         setTableTickets(tableEntries);
+        setTitle("All Tickets");
       } else if (status === "priority") {
         const result = _.filter(tickets, ["priority", value]);
         const tableEntries = result.slice(0, entries);
         setTableTickets(tableEntries);
+        setTitle(`${value} Priority Tickets`);
       } else {
         const result = _.filter(tickets, ["status", value]);
         const tableEntries = result.slice(0, entries);
         setTableTickets(tableEntries);
+        setTitle(`${value} Tickets`);
       }
     };
 
@@ -106,7 +110,7 @@ const FilteredTable: React.FC = () => {
           <Entries />
         </div>
         <div className="col-sm-5 title">
-          <h3>High Priority Tickets</h3>
+          <h3>{title}</h3>
         </div>
       </div>
       <div className="table-responsive" data-testid="tableComponent">
