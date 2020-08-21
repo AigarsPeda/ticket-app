@@ -8,15 +8,16 @@ import {
   ITicket
 } from "../../../../interfaces/interfaces";
 
+import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
+import { editTicket } from "../../../../services/ticket.services";
+import { editModal } from "../../../../redux/actions/modal";
+import { apiEndPoint } from "../../../../Config";
+
 import FormInput from "../../../reusable/FormInput";
 import Button from "../../../reusable/button/Button";
 import DropDown from "../../../reusable/dropdown/DropDown";
 
-import { departmentArray, prioritiesArray } from "../../../../helpers/helpers";
-import { editTicket } from "../../../../services/ticket.services";
-import { editModal } from "../../../../redux/actions/modal";
-
-const API_ENDPOINT = "http://localhost:5000";
+const API_ENDPOINT = apiEndPoint();
 
 type Props = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
 

@@ -9,6 +9,7 @@ import "./Table.scss";
 
 import { RootState } from "../../../../redux/reducers";
 import { ITicket } from "../../../../interfaces/interfaces";
+import { apiEndPoint } from "../../../../Config";
 
 import { selectedTicket } from "../../../../redux/actions/tickets";
 import { editModal } from "../../../../redux/actions/modal";
@@ -19,7 +20,7 @@ import {
 
 import Entries from "../elements/Entries";
 
-const API_ENDPOINT = "http://localhost:5000";
+const API_ENDPOINT = apiEndPoint();
 
 const TABLE_HEAD = [
   "ID",

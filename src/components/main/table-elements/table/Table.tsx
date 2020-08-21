@@ -7,6 +7,7 @@ import "./Table.scss";
 
 import { RootState } from "../../../../redux/reducers";
 import { ITicket } from "../../../../interfaces/interfaces";
+import { apiEndPoint } from "../../../../Config";
 
 import { selectedTicket } from "../../../../redux/actions/tickets";
 import { editModal } from "../../../../redux/actions/modal";
@@ -15,7 +16,7 @@ import {
   closeTicket
 } from "../../../../services/ticket.services";
 
-const API_ENDPOINT = "http://localhost:5000";
+const API_ENDPOINT = apiEndPoint();
 
 const TABLE_HEAD = [
   "ID",

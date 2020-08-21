@@ -1,12 +1,9 @@
+import { apiEndPoint, configHeader } from "./../Config";
 import axios from "axios";
 import { ITicket } from "../interfaces/interfaces";
 
-const API_ENDPOINT = "http://localhost:5000";
-const config = {
-  headers: {
-    "Content-Type": "application/json"
-  }
-};
+const API_ENDPOINT = apiEndPoint();
+const config = configHeader();
 
 export const addNewTicket = async (ticketData: ITicket) => {
   const response = await axios.post(
