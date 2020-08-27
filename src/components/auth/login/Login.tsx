@@ -90,7 +90,7 @@ const Login: React.FC<Props> = (props) => {
           </div>
           <Button
             type="submit"
-            label="Sign Up"
+            label="Sign In"
             className="btn btn-primary btn-block"
             // handleClick={onRegisterUser}
           />
