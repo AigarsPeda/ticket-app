@@ -19,6 +19,10 @@ module.exports = (env) => {
       path: path.join(__dirname, "dist"),
       filename: "js/[name].[hash].bundle.js"
     },
+    // mode: 'development',
+    // optimization: {
+    //   usedExports: true
+    // },
     resolve: {
       extensions: [".ts", ".tsx", ".js"]
     },
